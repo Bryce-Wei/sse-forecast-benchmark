@@ -30,7 +30,7 @@ python experiments/lstm/run_all.py --history 32 --language en
 结构保持 `LSTM(32, return_sequences=True) -> LSTM(16, relu) -> Dense(1)`，
 7,505 个参数。MAE 损失、Adam 0.001、batch 32、梯度 clip value 1.0、seed 88
 均保持原协议。此次重构没有重新调参。模型不是 LSTM 架构的原创实现；
-使用 TensorFlow/Keras 层，实验结构延续课堂示例。
+使用 TensorFlow/Keras 层构建循环神经网络，按照固定的滚动训练与内部验证协议完成次日预测。来源与许可见根目录第三方声明。
 
 `protocol.load_records(history, ...)` 是配对实验读取结果的公共接口。它检查
 数据指纹、输入长度、模型配置、训练与验证日期、标准化参数、选定轮数、
