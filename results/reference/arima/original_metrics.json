@@ -1,0 +1,62 @@
+{
+  "symbol": "000001.SS",
+  "name": "SSE Composite Index",
+  "source": "Yahoo Finance chart API",
+  "source_url": "https://finance.yahoo.com/quote/000001.SS/history/",
+  "as_of_local": "2026-09-14 Asia/Shanghai; incomplete current session excluded",
+  "raw_sha256": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+  "initial_training_start": "2023-03-14",
+  "initial_training_end": "2026-03-13",
+  "initial_training_observations": 726,
+  "test_start": "2026-03-16",
+  "test_end": "2026-09-11",
+  "test_observations": 125,
+  "order": [
+    5,
+    1,
+    0
+  ],
+  "fit_scale": 100.0,
+  "method": "Expanding-window refit, one trading observation ahead; append actual after prediction.",
+  "index_conversion": "previous actual close * exp(predicted log return), no mean bias correction",
+  "log_return": {
+    "arima": {
+      "mae": 0.008882628942509836,
+      "rmse": 0.011408786104436233,
+      "mse": 0.00013016040037677726
+    },
+    "zero_return": {
+      "mae": 0.007896765692281729,
+      "rmse": 0.010433650504646994,
+      "mse": 0.00010886106285312045
+    },
+    "historical_mean": {
+      "mae": 0.007888580369704747,
+      "rmse": 0.010453609232858286,
+      "mse": 0.00010927794599329999
+    }
+  },
+  "index_points": {
+    "arima": {
+      "mae": 35.33902455790025,
+      "rmse": 45.20135610746361,
+      "mse": 2043.162593953738
+    },
+    "unchanged_price": {
+      "mae": 31.46460546875,
+      "rmse": 41.42015978996017,
+      "mse": 1715.629637025833
+    }
+  },
+  "direction_accuracy": 0.464,
+  "test_total_index_change": -0.05062618647859263,
+  "fit_retry_dates": [],
+  "nonconverged_final_fits": 0,
+  "total_runtime_seconds": 9.34399999998277,
+  "versions": {
+    "numpy": "1.26.4",
+    "pandas": "2.2.2",
+    "statsmodels": "0.14.2",
+    "matplotlib": "3.8.4"
+  }
+}

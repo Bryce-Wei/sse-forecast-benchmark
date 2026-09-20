@@ -1,0 +1,2377 @@
+[
+  {
+    "date": "2026-03-16T00:00:00.000",
+    "trained_through": "2026-03-13T00:00:00.000",
+    "history_observations": 726,
+    "predicted_log_return": -0.0012347206,
+    "history_mean_prediction": 0.0003105837,
+    "previous_close": 4095.4479980469,
+    "predicted_close": 4090.3943846768,
+    "actual_log_return": -0.0026067996,
+    "actual_close": 4084.7858886719,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-17T00:00:00.000",
+    "trained_through": "2026-03-16T00:00:00.000",
+    "history_observations": 727,
+    "predicted_log_return": -0.0014376803,
+    "history_mean_prediction": 0.0003065708,
+    "previous_close": 4084.7858886719,
+    "predicted_close": 4078.9174917593,
+    "actual_log_return": -0.0085753994,
+    "actual_close": 4049.9069824219,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-18T00:00:00.000",
+    "trained_through": "2026-03-17T00:00:00.000",
+    "history_observations": 728,
+    "predicted_log_return": -0.002783916,
+    "history_mean_prediction": 0.0002943703,
+    "previous_close": 4049.9069824219,
+    "predicted_close": 4038.6480607,
+    "actual_log_return": 0.0032237376,
+    "actual_close": 4062.9838867188,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-19T00:00:00.000",
+    "trained_through": "2026-03-18T00:00:00.000",
+    "history_observations": 729,
+    "predicted_log_return": -0.002970127,
+    "history_mean_prediction": 0.0002983886,
+    "previous_close": 4062.9838867188,
+    "predicted_close": 4050.9342120156,
+    "actual_log_return": -0.0139866296,
+    "actual_close": 4006.5520019531,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-20T00:00:00.000",
+    "trained_through": "2026-03-19T00:00:00.000",
+    "history_observations": 730,
+    "predicted_log_return": -0.0054691971,
+    "history_mean_prediction": 0.0002788201,
+    "previous_close": 4006.5520019531,
+    "predicted_close": 3984.6991923601,
+    "actual_log_return": -0.0124314707,
+    "actual_close": 3957.0529785156,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-23T00:00:00.000",
+    "trained_through": "2026-03-20T00:00:00.000",
+    "history_observations": 731,
+    "predicted_log_return": -0.0083457301,
+    "history_mean_prediction": 0.0002614326,
+    "previous_close": 3957.0529785156,
+    "predicted_close": 3924.1659067067,
+    "actual_log_return": -0.0370090637,
+    "actual_close": 3813.2829589844,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-24T00:00:00.000",
+    "trained_through": "2026-03-23T00:00:00.000",
+    "history_observations": 732,
+    "predicted_log_return": -0.0137456134,
+    "history_mean_prediction": 0.0002105166,
+    "previous_close": 3813.2829589844,
+    "predicted_close": 3761.225645148,
+    "actual_log_return": 0.0176745165,
+    "actual_close": 3881.2800292969,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-25T00:00:00.000",
+    "trained_through": "2026-03-24T00:00:00.000",
+    "history_observations": 733,
+    "predicted_log_return": -0.0083077124,
+    "history_mean_prediction": 0.000234342,
+    "previous_close": 3881.2800292969,
+    "predicted_close": 3849.169040096,
+    "actual_log_return": 0.0129417212,
+    "actual_close": 3931.8369140625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-26T00:00:00.000",
+    "trained_through": "2026-03-25T00:00:00.000",
+    "history_observations": 734,
+    "predicted_log_return": -0.0018860695,
+    "history_mean_prediction": 0.0002516545,
+    "previous_close": 3931.8369140625,
+    "predicted_close": 3924.42818515,
+    "actual_log_return": -0.0109333256,
+    "actual_close": 3889.0830078125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-27T00:00:00.000",
+    "trained_through": "2026-03-26T00:00:00.000",
+    "history_observations": 735,
+    "predicted_log_return": -0.0093071069,
+    "history_mean_prediction": 0.0002364368,
+    "previous_close": 3889.0830078125,
+    "predicted_close": 3853.0548155903,
+    "actual_log_return": 0.0063159821,
+    "actual_close": 3913.7241210938,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-30T00:00:00.000",
+    "trained_through": "2026-03-27T00:00:00.000",
+    "history_observations": 736,
+    "predicted_log_return": -0.0023676797,
+    "history_mean_prediction": 0.0002446971,
+    "previous_close": 3913.7241210938,
+    "predicted_close": 3904.4686374188,
+    "actual_log_return": 0.0024404694,
+    "actual_close": 3923.287109375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-03-31T00:00:00.000",
+    "trained_through": "2026-03-30T00:00:00.000",
+    "history_observations": 737,
+    "predicted_log_return": 0.0029737244,
+    "history_mean_prediction": 0.0002476764,
+    "previous_close": 3923.287109375,
+    "predicted_close": 3934.9712478884,
+    "actual_log_return": -0.0080423797,
+    "actual_close": 3891.8610839844,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-01T00:00:00.000",
+    "trained_through": "2026-03-31T00:00:00.000",
+    "history_observations": 738,
+    "predicted_log_return": 0.0005858976,
+    "history_mean_prediction": 0.0002364433,
+    "previous_close": 3891.8610839844,
+    "predicted_close": 3894.1419840316,
+    "actual_log_return": 0.0144614589,
+    "actual_close": 3948.5520019531,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-02T00:00:00.000",
+    "trained_through": "2026-04-01T00:00:00.000",
+    "history_observations": 739,
+    "predicted_log_return": 0.0028431216,
+    "history_mean_prediction": 0.0002556923,
+    "previous_close": 3948.5520019531,
+    "predicted_close": 3959.7941894918,
+    "actual_log_return": -0.0074397131,
+    "actual_close": 3919.2849121094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-03T00:00:00.000",
+    "trained_through": "2026-04-02T00:00:00.000",
+    "history_observations": 740,
+    "predicted_log_return": 0.0007576165,
+    "history_mean_prediction": 0.0002452931,
+    "previous_close": 3919.2849121094,
+    "predicted_close": 3922.2553520407,
+    "actual_log_return": -0.0100490831,
+    "actual_close": 3880.0969238281,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-07T00:00:00.000",
+    "trained_through": "2026-04-03T00:00:00.000",
+    "history_observations": 741,
+    "predicted_log_return": -0.0027610715,
+    "history_mean_prediction": 0.0002314005,
+    "previous_close": 3880.0969238281,
+    "predicted_close": 3869.3984753016,
+    "actual_log_return": 0.0025914495,
+    "actual_close": 3890.1650390625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-08T00:00:00.000",
+    "trained_through": "2026-04-07T00:00:00.000",
+    "history_observations": 742,
+    "predicted_log_return": -0.000331793,
+    "history_mean_prediction": 0.0002345812,
+    "previous_close": 3890.1650390625,
+    "predicted_close": 3888.8745236793,
+    "actual_log_return": 0.0265915071,
+    "actual_close": 3994.998046875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-09T00:00:00.000",
+    "trained_through": "2026-04-08T00:00:00.000",
+    "history_observations": 743,
+    "predicted_log_return": 0.0053010245,
+    "history_mean_prediction": 0.0002700548,
+    "previous_close": 3994.998046875,
+    "predicted_close": 4016.2318602599,
+    "actual_log_return": -0.0072419703,
+    "actual_close": 3966.1708984375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-10T00:00:00.000",
+    "trained_through": "2026-04-09T00:00:00.000",
+    "history_observations": 744,
+    "predicted_log_return": 0.0019736834,
+    "history_mean_prediction": 0.000259958,
+    "previous_close": 3966.1708984375,
+    "predicted_close": 3974.0065942245,
+    "actual_log_return": 0.0050435722,
+    "actual_close": 3986.2250976562,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-13T00:00:00.000",
+    "trained_through": "2026-04-10T00:00:00.000",
+    "history_observations": 745,
+    "predicted_log_return": 0.0012725393,
+    "history_mean_prediction": 0.000266379,
+    "previous_close": 3986.2250976562,
+    "predicted_close": 3991.3009545166,
+    "actual_log_return": 0.0005850963,
+    "actual_close": 3988.5581054688,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-14T00:00:00.000",
+    "trained_through": "2026-04-13T00:00:00.000",
+    "history_observations": 746,
+    "predicted_log_return": 0.0053244596,
+    "history_mean_prediction": 0.0002668062,
+    "previous_close": 3988.5581054688,
+    "predicted_close": 4009.8516598984,
+    "actual_log_return": 0.0094987676,
+    "actual_close": 4026.625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-15T00:00:00.000",
+    "trained_through": "2026-04-14T00:00:00.000",
+    "history_observations": 747,
+    "predicted_log_return": 0.0055125024,
+    "history_mean_prediction": 0.000279165,
+    "previous_close": 4026.625,
+    "predicted_close": 4048.88307239,
+    "actual_log_return": 0.0001450202,
+    "actual_close": 4027.208984375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-16T00:00:00.000",
+    "trained_through": "2026-04-15T00:00:00.000",
+    "history_observations": 748,
+    "predicted_log_return": 0.0045393272,
+    "history_mean_prediction": 0.0002789856,
+    "previous_close": 4027.208984375,
+    "predicted_close": 4045.5313578223,
+    "actual_log_return": 0.0070120267,
+    "actual_close": 4055.5471191406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-17T00:00:00.000",
+    "trained_through": "2026-04-16T00:00:00.000",
+    "history_observations": 749,
+    "predicted_log_return": 0.0029115914,
+    "history_mean_prediction": 0.000287975,
+    "previous_close": 4055.5471191406,
+    "predicted_close": 4067.3724221019,
+    "actual_log_return": -0.0010169199,
+    "actual_close": 4051.4250488281,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-20T00:00:00.000",
+    "trained_through": "2026-04-17T00:00:00.000",
+    "history_observations": 750,
+    "predicted_log_return": 0.0037856224,
+    "history_mean_prediction": 0.0002862351,
+    "previous_close": 4051.4250488281,
+    "predicted_close": 4066.7912812832,
+    "actual_log_return": 0.0075494815,
+    "actual_close": 4082.126953125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-21T00:00:00.000",
+    "trained_through": "2026-04-20T00:00:00.000",
+    "history_observations": 751,
+    "predicted_log_return": 0.0038138349,
+    "history_mean_prediction": 0.0002959066,
+    "previous_close": 4082.126953125,
+    "predicted_close": 4097.7252369744,
+    "actual_log_return": 0.0007223895,
+    "actual_close": 4085.0769042969,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-22T00:00:00.000",
+    "trained_through": "2026-04-21T00:00:00.000",
+    "history_observations": 752,
+    "predicted_log_return": 0.0039862398,
+    "history_mean_prediction": 0.0002964737,
+    "previous_close": 4085.0769042969,
+    "predicted_close": 4101.3934997105,
+    "actual_log_return": 0.0051715517,
+    "actual_close": 4106.2578125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-23T00:00:00.000",
+    "trained_through": "2026-04-22T00:00:00.000",
+    "history_observations": 753,
+    "predicted_log_return": 0.0030212911,
+    "history_mean_prediction": 0.0003029479,
+    "previous_close": 4106.2578125,
+    "predicted_close": 4118.6827728519,
+    "actual_log_return": -0.0031728303,
+    "actual_close": 4093.25,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-24T00:00:00.000",
+    "trained_through": "2026-04-23T00:00:00.000",
+    "history_observations": 754,
+    "predicted_log_return": 0.0025596417,
+    "history_mean_prediction": 0.0002983381,
+    "previous_close": 4093.25,
+    "predicted_close": 4103.740673903,
+    "actual_log_return": -0.0032668212,
+    "actual_close": 4079.8999023438,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27T00:00:00.000",
+    "trained_through": "2026-04-24T00:00:00.000",
+    "history_observations": 755,
+    "predicted_log_return": 0.0004112441,
+    "history_mean_prediction": 0.000293616,
+    "previous_close": 4079.8999023438,
+    "predicted_close": 4081.5780821953,
+    "actual_log_return": 0.001578227,
+    "actual_close": 4086.3439941406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28T00:00:00.000",
+    "trained_through": "2026-04-27T00:00:00.000",
+    "history_observations": 756,
+    "predicted_log_return": 0.0012955493,
+    "history_mean_prediction": 0.0002953153,
+    "previous_close": 4086.3439941406,
+    "predicted_close": 4091.6414849318,
+    "actual_log_return": -0.0018878265,
+    "actual_close": 4078.6369628906,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29T00:00:00.000",
+    "trained_through": "2026-04-28T00:00:00.000",
+    "history_observations": 757,
+    "predicted_log_return": -0.0003619534,
+    "history_mean_prediction": 0.0002924313,
+    "previous_close": 4078.6369628906,
+    "predicted_close": 4077.160953523,
+    "actual_log_return": 0.0070551634,
+    "actual_close": 4107.5141601562,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30T00:00:00.000",
+    "trained_through": "2026-04-29T00:00:00.000",
+    "history_observations": 758,
+    "predicted_log_return": 0.000737546,
+    "history_mean_prediction": 0.0003013531,
+    "previous_close": 4107.5141601562,
+    "predicted_close": 4110.5447583625,
+    "actual_log_return": 0.0011302201,
+    "actual_close": 4112.1591796875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-06T00:00:00.000",
+    "trained_through": "2026-04-30T00:00:00.000",
+    "history_observations": 759,
+    "predicted_log_return": 0.0009726263,
+    "history_mean_prediction": 0.0003024452,
+    "previous_close": 4112.1591796875,
+    "predicted_close": 4116.1607197164,
+    "actual_log_return": 0.0116086206,
+    "actual_close": 4160.173828125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-07T00:00:00.000",
+    "trained_through": "2026-05-06T00:00:00.000",
+    "history_observations": 760,
+    "predicted_log_return": 0.0031807544,
+    "history_mean_prediction": 0.0003173217,
+    "previous_close": 4160.173828125,
+    "predicted_close": 4173.4273862089,
+    "actual_log_return": 0.0047763483,
+    "actual_close": 4180.091796875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-08T00:00:00.000",
+    "trained_through": "2026-05-07T00:00:00.000",
+    "history_observations": 761,
+    "predicted_log_return": 0.0049054178,
+    "history_mean_prediction": 0.0003231812,
+    "previous_close": 4180.091796875,
+    "predicted_close": 4200.647269157,
+    "actual_log_return": -3.31749e-05,
+    "actual_close": 4179.953125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-11T00:00:00.000",
+    "trained_through": "2026-05-08T00:00:00.000",
+    "history_observations": 762,
+    "predicted_log_return": 0.0034047175,
+    "history_mean_prediction": 0.0003227135,
+    "previous_close": 4179.953125,
+    "predicted_close": 4194.2089393333,
+    "actual_log_return": 0.0107241979,
+    "actual_close": 4225.0209960938,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-12T00:00:00.000",
+    "trained_through": "2026-05-11T00:00:00.000",
+    "history_observations": 763,
+    "predicted_log_return": 0.0063176165,
+    "history_mean_prediction": 0.0003363459,
+    "previous_close": 4225.0209960938,
+    "predicted_close": 4251.7975515975,
+    "actual_log_return": -0.0024959346,
+    "actual_close": 4214.4887695312,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-13T00:00:00.000",
+    "trained_through": "2026-05-12T00:00:00.000",
+    "history_observations": 764,
+    "predicted_log_return": 0.0044087738,
+    "history_mean_prediction": 0.0003326387,
+    "previous_close": 4214.4887695312,
+    "predicted_close": 4233.1105165804,
+    "actual_log_return": 0.0066413409,
+    "actual_close": 4242.5717773438,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-14T00:00:00.000",
+    "trained_through": "2026-05-13T00:00:00.000",
+    "history_observations": 765,
+    "predicted_log_return": 0.0040841971,
+    "history_mean_prediction": 0.0003408854,
+    "previous_close": 4242.5717773438,
+    "predicted_close": 4259.9347091855,
+    "actual_log_return": -0.0153568415,
+    "actual_close": 4177.9169921875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-15T00:00:00.000",
+    "trained_through": "2026-05-14T00:00:00.000",
+    "history_observations": 766,
+    "predicted_log_return": 0.0003611088,
+    "history_mean_prediction": 0.0003203922,
+    "previous_close": 4177.9169921875,
+    "predicted_close": 4179.4259474107,
+    "actual_log_return": -0.0102313574,
+    "actual_close": 4135.3891601562,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-18T00:00:00.000",
+    "trained_through": "2026-05-15T00:00:00.000",
+    "history_observations": 767,
+    "predicted_log_return": -0.0035458137,
+    "history_mean_prediction": 0.0003066351,
+    "previous_close": 4135.3891601562,
+    "predicted_close": 4120.7518064549,
+    "actual_log_return": -0.0009341641,
+    "actual_close": 4131.5278320312,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-19T00:00:00.000",
+    "trained_through": "2026-05-18T00:00:00.000",
+    "history_observations": 768,
+    "predicted_log_return": -0.0020108116,
+    "history_mean_prediction": 0.0003050194,
+    "previous_close": 4131.5278320312,
+    "predicted_close": 4123.2284548922,
+    "actual_log_return": 0.0091579852,
+    "actual_close": 4169.5380859375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-20T00:00:00.000",
+    "trained_through": "2026-05-19T00:00:00.000",
+    "history_observations": 769,
+    "predicted_log_return": -0.0018702117,
+    "history_mean_prediction": 0.0003165318,
+    "previous_close": 4169.5380859375,
+    "predicted_close": 4161.7474541676,
+    "actual_log_return": -0.0017650681,
+    "actual_close": 4162.1850585938,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-21T00:00:00.000",
+    "trained_through": "2026-05-20T00:00:00.000",
+    "history_observations": 770,
+    "predicted_log_return": -0.0025453981,
+    "history_mean_prediction": 0.0003138284,
+    "previous_close": 4162.1850585938,
+    "predicted_close": 4151.6041127571,
+    "actual_log_return": -0.0206108028,
+    "actual_close": 4077.2770996094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-22T00:00:00.000",
+    "trained_through": "2026-05-21T00:00:00.000",
+    "history_observations": 771,
+    "predicted_log_return": -0.0071291043,
+    "history_mean_prediction": 0.0002866888,
+    "previous_close": 4077.2770996094,
+    "predicted_close": 4048.3131321649,
+    "actual_log_return": 0.0086987265,
+    "actual_close": 4112.8989257812,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-25T00:00:00.000",
+    "trained_through": "2026-05-22T00:00:00.000",
+    "history_observations": 772,
+    "predicted_log_return": -0.0013967961,
+    "history_mean_prediction": 0.0002975852,
+    "previous_close": 4112.8989257812,
+    "predicted_close": 4107.1580549473,
+    "actual_log_return": 0.0095987924,
+    "actual_close": 4152.5678710938,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-26T00:00:00.000",
+    "trained_through": "2026-05-25T00:00:00.000",
+    "history_observations": 773,
+    "predicted_log_return": 0.0022945755,
+    "history_mean_prediction": 0.0003096178,
+    "previous_close": 4152.5678710938,
+    "predicted_close": 4162.1071915552,
+    "actual_log_return": -0.0017341232,
+    "actual_close": 4145.373046875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-27T00:00:00.000",
+    "trained_through": "2026-05-26T00:00:00.000",
+    "history_observations": 774,
+    "predicted_log_return": -0.0014692541,
+    "history_mean_prediction": 0.0003069773,
+    "previous_close": 4145.373046875,
+    "predicted_close": 4139.2869126198,
+    "actual_log_return": -0.0125369693,
+    "actual_close": 4093.7270507812,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-28T00:00:00.000",
+    "trained_through": "2026-05-27T00:00:00.000",
+    "history_observations": 775,
+    "predicted_log_return": -0.0033243062,
+    "history_mean_prediction": 0.0002904045,
+    "previous_close": 4093.7270507812,
+    "predicted_close": 4080.1408435433,
+    "actual_log_return": 0.0011984772,
+    "actual_close": 4098.6362304688,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-05-29T00:00:00.000",
+    "trained_through": "2026-05-28T00:00:00.000",
+    "history_observations": 776,
+    "predicted_log_return": -0.0007316851,
+    "history_mean_prediction": 0.0002915747,
+    "previous_close": 4098.6362304688,
+    "predicted_close": 4095.6384163674,
+    "actual_log_return": -0.0073629285,
+    "actual_close": 4068.5690917969,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-01T00:00:00.000",
+    "trained_through": "2026-05-29T00:00:00.000",
+    "history_observations": 777,
+    "predicted_log_return": -0.0010917813,
+    "history_mean_prediction": 0.0002817233,
+    "previous_close": 4068.5690917969,
+    "predicted_close": 4064.1295280018,
+    "actual_log_return": -0.0026651972,
+    "actual_close": 4057.7399902344,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-02T00:00:00.000",
+    "trained_through": "2026-06-01T00:00:00.000",
+    "history_observations": 778,
+    "predicted_log_return": -0.0040614441,
+    "history_mean_prediction": 0.0002779355,
+    "previous_close": 4057.7399902344,
+    "predicted_close": 4041.2931278035,
+    "actual_log_return": 0.0042696235,
+    "actual_close": 4075.1020507812,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-03T00:00:00.000",
+    "trained_through": "2026-06-02T00:00:00.000",
+    "history_observations": 779,
+    "predicted_log_return": -0.0021969767,
+    "history_mean_prediction": 0.0002830596,
+    "previous_close": 4075.1020507812,
+    "predicted_close": 4066.1589739371,
+    "actual_log_return": 0.0021747741,
+    "actual_close": 4083.9741210938,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-04T00:00:00.000",
+    "trained_through": "2026-06-03T00:00:00.000",
+    "history_observations": 780,
+    "predicted_log_return": -0.0016322917,
+    "history_mean_prediction": 0.0002854849,
+    "previous_close": 4083.9741210938,
+    "predicted_close": 4077.313321891,
+    "actual_log_return": -0.0064342897,
+    "actual_close": 4057.7810058594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-05T00:00:00.000",
+    "trained_through": "2026-06-04T00:00:00.000",
+    "history_observations": 781,
+    "predicted_log_return": -0.0020817139,
+    "history_mean_prediction": 0.0002768808,
+    "previous_close": 4057.7810058594,
+    "predicted_close": 4049.3426530318,
+    "actual_log_return": -0.0074318216,
+    "actual_close": 4027.7360839844,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-08T00:00:00.000",
+    "trained_through": "2026-06-05T00:00:00.000",
+    "history_observations": 782,
+    "predicted_log_return": -0.0027654923,
+    "history_mean_prediction": 0.0002670232,
+    "previous_close": 4027.7360839844,
+    "predicted_close": 4016.612798534,
+    "actual_log_return": -0.0171276404,
+    "actual_close": 3959.337890625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-09T00:00:00.000",
+    "trained_through": "2026-06-08T00:00:00.000",
+    "history_observations": 783,
+    "predicted_log_return": -0.0051928379,
+    "history_mean_prediction": 0.0002448078,
+    "previous_close": 3959.337890625,
+    "predicted_close": 3938.8309813769,
+    "actual_log_return": 0.0127221615,
+    "actual_close": 4010.0310058594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-10T00:00:00.000",
+    "trained_through": "2026-06-09T00:00:00.000",
+    "history_observations": 784,
+    "predicted_log_return": -0.0020413107,
+    "history_mean_prediction": 0.0002607228,
+    "previous_close": 4010.0310058594,
+    "predicted_close": 4001.8536356491,
+    "actual_log_return": -0.0041995293,
+    "actual_close": 3993.2260742188,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-11T00:00:00.000",
+    "trained_through": "2026-06-10T00:00:00.000",
+    "history_observations": 785,
+    "predicted_log_return": -0.0029451574,
+    "history_mean_prediction": 0.0002550409,
+    "previous_close": 3993.2260742188,
+    "predicted_close": 3981.4826964773,
+    "actual_log_return": -0.0015566404,
+    "actual_close": 3987.0148925781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-12T00:00:00.000",
+    "trained_through": "2026-06-11T00:00:00.000",
+    "history_observations": 786,
+    "predicted_log_return": -0.0051868549,
+    "history_mean_prediction": 0.000252736,
+    "previous_close": 3987.0148925781,
+    "predicted_close": 3966.3883643671,
+    "actual_log_return": 0.011098921,
+    "actual_close": 4031.5129394531,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-15T00:00:00.000",
+    "trained_through": "2026-06-12T00:00:00.000",
+    "history_observations": 787,
+    "predicted_log_return": 0.0012083422,
+    "history_mean_prediction": 0.0002665176,
+    "previous_close": 4031.5129394531,
+    "predicted_close": 4036.3873308927,
+    "actual_log_return": 0.0159844318,
+    "actual_close": 4096.4721679688,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-16T00:00:00.000",
+    "trained_through": "2026-06-15T00:00:00.000",
+    "history_observations": 788,
+    "predicted_log_return": 0.0048746231,
+    "history_mean_prediction": 0.0002864642,
+    "previous_close": 4096.4721679688,
+    "predicted_close": 4116.4896749342,
+    "actual_log_return": -0.0011186797,
+    "actual_close": 4091.8920898438,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-17T00:00:00.000",
+    "trained_through": "2026-06-16T00:00:00.000",
+    "history_observations": 789,
+    "predicted_log_return": 0.0043953907,
+    "history_mean_prediction": 0.0002846833,
+    "previous_close": 4091.8920898438,
+    "predicted_close": 4109.9171386423,
+    "actual_log_return": 0.0039473575,
+    "actual_close": 4108.076171875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-18T00:00:00.000",
+    "trained_through": "2026-06-17T00:00:00.000",
+    "history_observations": 790,
+    "predicted_log_return": 0.0044841138,
+    "history_mean_prediction": 0.0002893196,
+    "previous_close": 4108.076171875,
+    "predicted_close": 4126.5386158484,
+    "actual_log_return": -0.0042922777,
+    "actual_close": 4090.4809570312,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-22T00:00:00.000",
+    "trained_through": "2026-06-18T00:00:00.000",
+    "history_observations": 791,
+    "predicted_log_return": 0.0046945262,
+    "history_mean_prediction": 0.0002835275,
+    "previous_close": 4090.4809570312,
+    "predicted_close": 4109.7289718643,
+    "actual_log_return": 0.0175967522,
+    "actual_close": 4163.0971679688,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-23T00:00:00.000",
+    "trained_through": "2026-06-22T00:00:00.000",
+    "history_observations": 792,
+    "predicted_log_return": 0.006707825,
+    "history_mean_prediction": 0.0003053876,
+    "previous_close": 4163.0971679688,
+    "predicted_close": 4191.1163641071,
+    "actual_log_return": -0.0137488677,
+    "actual_close": 4106.2509765625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-24T00:00:00.000",
+    "trained_through": "2026-06-23T00:00:00.000",
+    "history_observations": 793,
+    "predicted_log_return": 0.002103134,
+    "history_mean_prediction": 0.0002876647,
+    "previous_close": 4106.2509765625,
+    "predicted_close": 4114.896060137,
+    "actual_log_return": 0.0011103752,
+    "actual_close": 4110.8129882812,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-25T00:00:00.000",
+    "trained_through": "2026-06-24T00:00:00.000",
+    "history_observations": 794,
+    "predicted_log_return": -0.0008214092,
+    "history_mean_prediction": 0.0002887009,
+    "previous_close": 4110.8129882812,
+    "predicted_close": 4107.4377151169,
+    "actual_log_return": 0.0023004908,
+    "actual_close": 4120.2807617188,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-26T00:00:00.000",
+    "trained_through": "2026-06-25T00:00:00.000",
+    "history_observations": 795,
+    "predicted_log_return": 0.0027934414,
+    "history_mean_prediction": 0.0002912314,
+    "previous_close": 4120.2807617188,
+    "predicted_close": 4131.8066153749,
+    "actual_log_return": -0.0228338482,
+    "actual_close": 4027.2648925781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-29T00:00:00.000",
+    "trained_through": "2026-06-26T00:00:00.000",
+    "history_observations": 796,
+    "predicted_log_return": -0.0052694024,
+    "history_mean_prediction": 0.0002621798,
+    "previous_close": 4027.2648925781,
+    "predicted_close": 4006.0994270124,
+    "actual_log_return": 0.0115138281,
+    "actual_close": 4073.9020996094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-06-30T00:00:00.000",
+    "trained_through": "2026-06-29T00:00:00.000",
+    "history_observations": 797,
+    "predicted_log_return": -0.0019522847,
+    "history_mean_prediction": 0.0002762973,
+    "previous_close": 4073.9020996094,
+    "predicted_close": 4065.9564413876,
+    "actual_log_return": 0.0050181601,
+    "actual_close": 4094.3969726562,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-01T00:00:00.000",
+    "trained_through": "2026-06-30T00:00:00.000",
+    "history_observations": 798,
+    "predicted_log_return": -0.0002104318,
+    "history_mean_prediction": 0.0002822395,
+    "previous_close": 4094.3969726562,
+    "predicted_close": 4093.5354718921,
+    "actual_log_return": 0.0043982524,
+    "actual_close": 4112.4448242188,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-02T00:00:00.000",
+    "trained_through": "2026-07-01T00:00:00.000",
+    "history_observations": 799,
+    "predicted_log_return": -0.0011663812,
+    "history_mean_prediction": 0.0002873909,
+    "previous_close": 4112.4448242188,
+    "predicted_close": 4107.6509423225,
+    "actual_log_return": -0.0205233076,
+    "actual_close": 4028.9040527344,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-03T00:00:00.000",
+    "trained_through": "2026-07-02T00:00:00.000",
+    "history_observations": 800,
+    "predicted_log_return": -0.0035892492,
+    "history_mean_prediction": 0.0002613776,
+    "previous_close": 4028.9040527344,
+    "predicted_close": 4014.4692327599,
+    "actual_log_return": 0.003651643,
+    "actual_close": 4043.6430664062,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-06T00:00:00.000",
+    "trained_through": "2026-07-03T00:00:00.000",
+    "history_observations": 801,
+    "predicted_log_return": -0.0019216014,
+    "history_mean_prediction": 0.0002656101,
+    "previous_close": 4043.6430664062,
+    "predicted_close": 4035.8802570082,
+    "actual_log_return": -0.0005949449,
+    "actual_close": 4041.2380371094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-07T00:00:00.000",
+    "trained_through": "2026-07-06T00:00:00.000",
+    "history_observations": 802,
+    "predicted_log_return": 0.0008307676,
+    "history_mean_prediction": 0.0002645371,
+    "previous_close": 4041.2380371094,
+    "predicted_close": 4044.5967617872,
+    "actual_log_return": -0.0127009365,
+    "actual_close": 3990.2351074219,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-08T00:00:00.000",
+    "trained_through": "2026-07-07T00:00:00.000",
+    "history_observations": 803,
+    "predicted_log_return": -0.0059013287,
+    "history_mean_prediction": 0.0002483908,
+    "previous_close": 3990.2351074219,
+    "predicted_close": 3966.7567632051,
+    "actual_log_return": -0.0048624502,
+    "actual_close": 3970.8798828125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-09T00:00:00.000",
+    "trained_through": "2026-07-08T00:00:00.000",
+    "history_observations": 804,
+    "predicted_log_return": -0.0053900241,
+    "history_mean_prediction": 0.000242034,
+    "previous_close": 3970.8798828125,
+    "predicted_close": 3949.5343229228,
+    "actual_log_return": 0.0164120505,
+    "actual_close": 4036.587890625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-10T00:00:00.000",
+    "trained_through": "2026-07-09T00:00:00.000",
+    "history_observations": 805,
+    "predicted_log_return": -0.0005772585,
+    "history_mean_prediction": 0.000262121,
+    "previous_close": 4036.587890625,
+    "predicted_close": 4034.2584083793,
+    "actual_log_return": -0.0100653257,
+    "actual_close": 3996.162109375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-13T00:00:00.000",
+    "trained_through": "2026-07-10T00:00:00.000",
+    "history_observations": 806,
+    "predicted_log_return": -0.0022707976,
+    "history_mean_prediction": 0.0002493078,
+    "previous_close": 3996.162109375,
+    "predicted_close": 3987.097929519,
+    "actual_log_return": -0.0208272058,
+    "actual_close": 3913.7939453125,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-14T00:00:00.000",
+    "trained_through": "2026-07-13T00:00:00.000",
+    "history_observations": 807,
+    "predicted_log_return": -0.0071695456,
+    "history_mean_prediction": 0.0002231907,
+    "previous_close": 3913.7939453125,
+    "predicted_close": 3885.8341705269,
+    "actual_log_return": 0.0135346751,
+    "actual_close": 3967.1259765625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-15T00:00:00.000",
+    "trained_through": "2026-07-14T00:00:00.000",
+    "history_observations": 808,
+    "predicted_log_return": -0.0005075638,
+    "history_mean_prediction": 0.0002396653,
+    "previous_close": 3967.1259765625,
+    "predicted_close": 3965.1129178472,
+    "actual_log_return": -0.0029151926,
+    "actual_close": 3955.5778808594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-16T00:00:00.000",
+    "trained_through": "2026-07-15T00:00:00.000",
+    "history_observations": 809,
+    "predicted_log_return": -0.0014549683,
+    "history_mean_prediction": 0.0002357656,
+    "previous_close": 3955.5778808594,
+    "predicted_close": 3949.8268250786,
+    "actual_log_return": -0.0186698149,
+    "actual_close": 3882.4130859375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-17T00:00:00.000",
+    "trained_through": "2026-07-16T00:00:00.000",
+    "history_observations": 810,
+    "predicted_log_return": -0.0071296182,
+    "history_mean_prediction": 0.0002124254,
+    "previous_close": 3882.4130859375,
+    "predicted_close": 3854.8314030545,
+    "actual_log_return": -0.0309334814,
+    "actual_close": 3764.1550292969,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-20T00:00:00.000",
+    "trained_through": "2026-07-17T00:00:00.000",
+    "history_observations": 811,
+    "predicted_log_return": -0.0110369878,
+    "history_mean_prediction": 0.000174021,
+    "previous_close": 3764.1550292969,
+    "predicted_close": 3722.8385205815,
+    "actual_log_return": 0.0084984966,
+    "actual_close": 3796.2810058594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-21T00:00:00.000",
+    "trained_through": "2026-07-20T00:00:00.000",
+    "history_observations": 812,
+    "predicted_log_return": -0.0071578848,
+    "history_mean_prediction": 0.0001842729,
+    "previous_close": 3796.2810058594,
+    "predicted_close": 3769.2046837881,
+    "actual_log_return": 0.0177759716,
+    "actual_close": 3864.3669433594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-22T00:00:00.000",
+    "trained_through": "2026-07-21T00:00:00.000",
+    "history_observations": 813,
+    "predicted_log_return": -0.0026677196,
+    "history_mean_prediction": 0.0002059109,
+    "previous_close": 3864.3669433594,
+    "predicted_close": 3854.07163454,
+    "actual_log_return": 0.0006899118,
+    "actual_close": 3867.0339355469,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-23T00:00:00.000",
+    "trained_through": "2026-07-22T00:00:00.000",
+    "history_observations": 814,
+    "predicted_log_return": -0.0060811982,
+    "history_mean_prediction": 0.0002065055,
+    "previous_close": 3867.0339355469,
+    "predicted_close": 3843.5890941886,
+    "actual_log_return": 0.0025163758,
+    "actual_close": 3876.7770996094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-24T00:00:00.000",
+    "trained_through": "2026-07-23T00:00:00.000",
+    "history_observations": 815,
+    "predicted_log_return": -0.0008670053,
+    "history_mean_prediction": 0.0002093397,
+    "previous_close": 3876.7770996094,
+    "predicted_close": 3873.4173700691,
+    "actual_log_return": -0.0162737447,
+    "actual_close": 3814.1979980469,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-27T00:00:00.000",
+    "trained_through": "2026-07-24T00:00:00.000",
+    "history_observations": 816,
+    "predicted_log_return": -0.0003254874,
+    "history_mean_prediction": 0.0001891398,
+    "previous_close": 3814.1979980469,
+    "predicted_close": 3812.9567265736,
+    "actual_log_return": 0.0114820279,
+    "actual_close": 3858.2451171875,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-28T00:00:00.000",
+    "trained_through": "2026-07-27T00:00:00.000",
+    "history_observations": 817,
+    "predicted_log_return": 0.0034437771,
+    "history_mean_prediction": 0.0002029622,
+    "previous_close": 3858.2451171875,
+    "predicted_close": 3871.5549581978,
+    "actual_log_return": -0.011713573,
+    "actual_close": 3813.3149414062,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-29T00:00:00.000",
+    "trained_through": "2026-07-28T00:00:00.000",
+    "history_observations": 818,
+    "predicted_log_return": -0.0003215874,
+    "history_mean_prediction": 0.0001883943,
+    "previous_close": 3813.3149414062,
+    "predicted_close": 3812.0888246582,
+    "actual_log_return": 0.0039661086,
+    "actual_close": 3828.4689941406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-30T00:00:00.000",
+    "trained_through": "2026-07-29T00:00:00.000",
+    "history_observations": 819,
+    "predicted_log_return": -0.0033006942,
+    "history_mean_prediction": 0.0001930069,
+    "previous_close": 3828.4689941406,
+    "predicted_close": 3815.8532206066,
+    "actual_log_return": -0.0062296478,
+    "actual_close": 3804.6931152344,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-07-31T00:00:00.000",
+    "trained_through": "2026-07-30T00:00:00.000",
+    "history_observations": 820,
+    "predicted_log_return": -0.0014805006,
+    "history_mean_prediction": 0.0001851744,
+    "previous_close": 3804.6931152344,
+    "predicted_close": 3799.0644324274,
+    "actual_log_return": 0.0072198847,
+    "actual_close": 3832.2619628906,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-03T00:00:00.000",
+    "trained_through": "2026-07-31T00:00:00.000",
+    "history_observations": 821,
+    "predicted_log_return": -0.0017389803,
+    "history_mean_prediction": 0.0001937429,
+    "previous_close": 3832.2619628906,
+    "predicted_close": 3825.6035260227,
+    "actual_log_return": -0.0059144634,
+    "actual_close": 3809.6630859375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-04T00:00:00.000",
+    "trained_through": "2026-08-03T00:00:00.000",
+    "history_observations": 822,
+    "predicted_log_return": -0.0004253532,
+    "history_mean_prediction": 0.0001863119,
+    "previous_close": 3809.6630859375,
+    "predicted_close": 3808.0429779675,
+    "actual_log_return": 0.003307632,
+    "actual_close": 3822.2849121094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-05T00:00:00.000",
+    "trained_through": "2026-08-04T00:00:00.000",
+    "history_observations": 823,
+    "predicted_log_return": -0.001456256,
+    "history_mean_prediction": 0.0001901046,
+    "previous_close": 3822.2849121094,
+    "predicted_close": 3816.7227376853,
+    "actual_log_return": 0.0145820266,
+    "actual_close": 3878.4299316406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-06T00:00:00.000",
+    "trained_through": "2026-08-05T00:00:00.000",
+    "history_observations": 824,
+    "predicted_log_return": 0.0041328684,
+    "history_mean_prediction": 0.0002075705,
+    "previous_close": 3878.4299316406,
+    "predicted_close": 3894.4921408247,
+    "actual_log_return": 0.0056364035,
+    "actual_close": 3900.3520507812,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-07T00:00:00.000",
+    "trained_through": "2026-08-06T00:00:00.000",
+    "history_observations": 825,
+    "predicted_log_return": 0.0033266697,
+    "history_mean_prediction": 0.0002141509,
+    "previous_close": 3900.3520507812,
+    "predicted_close": 3913.3488399063,
+    "actual_log_return": 0.0101233234,
+    "actual_close": 3940.037109375,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-10T00:00:00.000",
+    "trained_through": "2026-08-07T00:00:00.000",
+    "history_observations": 826,
+    "predicted_log_return": 0.0056652283,
+    "history_mean_prediction": 0.0002261475,
+    "previous_close": 3940.037109375,
+    "predicted_close": 3962.4216659565,
+    "actual_log_return": 0.0067176486,
+    "actual_close": 3966.5939941406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-11T00:00:00.000",
+    "trained_through": "2026-08-10T00:00:00.000",
+    "history_observations": 827,
+    "predicted_log_return": 0.0075405334,
+    "history_mean_prediction": 0.0002339969,
+    "previous_close": 3966.5939941406,
+    "predicted_close": 3996.6172822003,
+    "actual_log_return": -0.0082274263,
+    "actual_close": 3934.0930175781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-12T00:00:00.000",
+    "trained_through": "2026-08-11T00:00:00.000",
+    "history_observations": 828,
+    "predicted_log_return": 0.0045656501,
+    "history_mean_prediction": 0.0002237778,
+    "previous_close": 3934.0930175781,
+    "predicted_close": 3952.0957755623,
+    "actual_log_return": 0.0031931004,
+    "actual_close": 3946.6750488281,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-13T00:00:00.000",
+    "trained_through": "2026-08-12T00:00:00.000",
+    "history_observations": 829,
+    "predicted_log_return": 0.0046151534,
+    "history_mean_prediction": 0.0002273596,
+    "previous_close": 3946.6750488281,
+    "predicted_close": 3964.9316557082,
+    "actual_log_return": -0.0050065794,
+    "actual_close": 3926.9650878906,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-14T00:00:00.000",
+    "trained_through": "2026-08-13T00:00:00.000",
+    "history_observations": 830,
+    "predicted_log_return": 0.002021397,
+    "history_mean_prediction": 0.0002210537,
+    "previous_close": 3926.9650878906,
+    "predicted_close": 3934.9110717289,
+    "actual_log_return": 5.39624e-05,
+    "actual_close": 3927.1770019531,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-17T00:00:00.000",
+    "trained_through": "2026-08-14T00:00:00.000",
+    "history_observations": 831,
+    "predicted_log_return": -0.0006286991,
+    "history_mean_prediction": 0.0002208526,
+    "previous_close": 3927.1770019531,
+    "predicted_close": 3924.7087653016,
+    "actual_log_return": 0.0140275968,
+    "actual_close": 3982.6540527344,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-18T00:00:00.000",
+    "trained_through": "2026-08-17T00:00:00.000",
+    "history_observations": 832,
+    "predicted_log_return": 0.0025017571,
+    "history_mean_prediction": 0.0002374472,
+    "previous_close": 3982.6540527344,
+    "predicted_close": 3992.630159286,
+    "actual_log_return": 0.0019189627,
+    "actual_close": 3990.3039550781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-19T00:00:00.000",
+    "trained_through": "2026-08-18T00:00:00.000",
+    "history_observations": 833,
+    "predicted_log_return": 0.0015046122,
+    "history_mean_prediction": 0.0002394659,
+    "previous_close": 3990.3039550781,
+    "predicted_close": 3996.3123339342,
+    "actual_log_return": -0.0243221037,
+    "actual_close": 3894.4221191406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-20T00:00:00.000",
+    "trained_through": "2026-08-19T00:00:00.000",
+    "history_observations": 834,
+    "predicted_log_return": -0.0033789062,
+    "history_mean_prediction": 0.0002100155,
+    "previous_close": 3894.4221191406,
+    "predicted_close": 3881.2854385713,
+    "actual_log_return": 0.0023848838,
+    "actual_close": 3903.7209472656,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-21T00:00:00.000",
+    "trained_through": "2026-08-20T00:00:00.000",
+    "history_observations": 835,
+    "predicted_log_return": -0.0006431448,
+    "history_mean_prediction": 0.0002126202,
+    "previous_close": 3903.7209472656,
+    "predicted_close": 3901.211096815,
+    "actual_log_return": 0.0003795487,
+    "actual_close": 3905.2028808594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-24T00:00:00.000",
+    "trained_through": "2026-08-21T00:00:00.000",
+    "history_observations": 836,
+    "predicted_log_return": -0.0002524043,
+    "history_mean_prediction": 0.0002128199,
+    "previous_close": 3905.2028808594,
+    "predicted_close": 3904.2173153275,
+    "actual_log_return": -0.0059571759,
+    "actual_close": 3882.0080566406,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-25T00:00:00.000",
+    "trained_through": "2026-08-24T00:00:00.000",
+    "history_observations": 837,
+    "predicted_log_return": -0.0051770413,
+    "history_mean_prediction": 0.0002054483,
+    "previous_close": 3882.0080566406,
+    "predicted_close": 3861.9626734028,
+    "actual_log_return": 0.0019139314,
+    "actual_close": 3889.4450683594,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-26T00:00:00.000",
+    "trained_through": "2026-08-25T00:00:00.000",
+    "history_observations": 838,
+    "predicted_log_return": -0.0033299033,
+    "history_mean_prediction": 0.0002074871,
+    "previous_close": 3889.4450683594,
+    "predicted_close": 3876.5151321666,
+    "actual_log_return": 0.00591593,
+    "actual_close": 3912.5229492188,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-27T00:00:00.000",
+    "trained_through": "2026-08-26T00:00:00.000",
+    "history_observations": 839,
+    "predicted_log_return": -0.0010944787,
+    "history_mean_prediction": 0.0002142909,
+    "previous_close": 3912.5229492188,
+    "predicted_close": 3908.2431187097,
+    "actual_log_return": 0.0111953309,
+    "actual_close": 3956.5710449219,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-28T00:00:00.000",
+    "trained_through": "2026-08-27T00:00:00.000",
+    "history_observations": 840,
+    "predicted_log_return": 0.0025259408,
+    "history_mean_prediction": 0.0002273636,
+    "previous_close": 3956.5710449219,
+    "predicted_close": 3966.5777421588,
+    "actual_log_return": -0.0011106914,
+    "actual_close": 3952.1789550781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-08-31T00:00:00.000",
+    "trained_through": "2026-08-28T00:00:00.000",
+    "history_observations": 841,
+    "predicted_log_return": 0.0022155363,
+    "history_mean_prediction": 0.0002257726,
+    "previous_close": 3952.1789550781,
+    "predicted_close": 3960.9448578497,
+    "actual_log_return": 0.0085959437,
+    "actual_close": 3986.2980957031,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-01T00:00:00.000",
+    "trained_through": "2026-08-31T00:00:00.000",
+    "history_observations": 842,
+    "predicted_log_return": 0.0042938978,
+    "history_mean_prediction": 0.0002357134,
+    "previous_close": 3986.2980957031,
+    "predicted_close": 4003.4516539469,
+    "actual_log_return": -0.0016093417,
+    "actual_close": 3979.8879394531,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-02T00:00:00.000",
+    "trained_through": "2026-09-01T00:00:00.000",
+    "history_observations": 843,
+    "predicted_log_return": 0.0047641806,
+    "history_mean_prediction": 0.0002335247,
+    "previous_close": 3979.8879394531,
+    "predicted_close": 3998.894082621,
+    "actual_log_return": -0.0097212284,
+    "actual_close": 3941.3859863281,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-03T00:00:00.000",
+    "trained_through": "2026-09-02T00:00:00.000",
+    "history_observations": 844,
+    "predicted_log_return": 0.000672511,
+    "history_mean_prediction": 0.00022173,
+    "previous_close": 3941.3859863281,
+    "predicted_close": 3944.0375033286,
+    "actual_log_return": 0.0001780698,
+    "actual_close": 3942.087890625,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-04T00:00:00.000",
+    "trained_through": "2026-09-03T00:00:00.000",
+    "history_observations": 845,
+    "predicted_log_return": 0.0010263684,
+    "history_mean_prediction": 0.0002216783,
+    "previous_close": 3942.087890625,
+    "predicted_close": 3946.1360021547,
+    "actual_log_return": -0.0030415709,
+    "actual_close": 3930.1159667969,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-07T00:00:00.000",
+    "trained_through": "2026-09-04T00:00:00.000",
+    "history_observations": 846,
+    "predicted_log_return": -0.0012151478,
+    "history_mean_prediction": 0.000217821,
+    "previous_close": 3930.1159667969,
+    "predicted_close": 3925.3431955298,
+    "actual_log_return": 0.0006570186,
+    "actual_close": 3932.6989746094,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-08T00:00:00.000",
+    "trained_through": "2026-09-07T00:00:00.000",
+    "history_observations": 847,
+    "predicted_log_return": -0.0021499967,
+    "history_mean_prediction": 0.0002183396,
+    "previous_close": 3932.6989746094,
+    "predicted_close": 3924.2527676393,
+    "actual_log_return": 0.0019946155,
+    "actual_close": 3940.5510253906,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-09T00:00:00.000",
+    "trained_through": "2026-09-08T00:00:00.000",
+    "history_observations": 848,
+    "predicted_log_return": -0.001348566,
+    "history_mean_prediction": 0.0002204342,
+    "previous_close": 3940.5510253906,
+    "predicted_close": 3935.2405140142,
+    "actual_log_return": 0.0027764777,
+    "actual_close": 3951.5070800781,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-10T00:00:00.000",
+    "trained_through": "2026-09-09T00:00:00.000",
+    "history_observations": 849,
+    "predicted_log_return": -0.0005640942,
+    "history_mean_prediction": 0.0002234449,
+    "previous_close": 3951.5070800781,
+    "predicted_close": 3949.2786863178,
+    "actual_log_return": -0.0043376228,
+    "actual_close": 3934.4040527344,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  },
+  {
+    "date": "2026-09-11T00:00:00.000",
+    "trained_through": "2026-09-10T00:00:00.000",
+    "history_observations": 850,
+    "predicted_log_return": -0.0004073332,
+    "history_mean_prediction": 0.0002180789,
+    "previous_close": 3934.4040527344,
+    "predicted_close": 3932.8017656354,
+    "actual_log_return": -0.0118359654,
+    "actual_close": 3888.1110839844,
+    "fit_attempts": [
+      {
+        "optimizer": "lbfgs",
+        "maxiter": 200,
+        "converged": true,
+        "warnings": []
+      }
+    ]
+  }
+]

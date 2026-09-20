@@ -1,0 +1,106 @@
+{
+  "type": "archived experimental results, not new training",
+  "report_date": "2026-09-20",
+  "data_end": "2026-09-11",
+  "raw_response_sha256": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+  "canonical_prices_sha256": "1f008677ebe57c334b3a6b1755e98600185c60cd07404f077cbe6cf77cd7bf0a",
+  "path_changes": "Any original workstation paths were replaced by logical original-experiment paths.",
+  "reference_files": [
+    {
+      "file": "results/reference/arima/comparison_results.json",
+      "original_source": "outputs/sse-arima-improved-20260914/comparison_results.json",
+      "original_sha256": "f2b124102249c697b5fca73efa111122632af40d1a92332961c4146722fe420c",
+      "published_sha256": "f2b124102249c697b5fca73efa111122632af40d1a92332961c4146722fe420c"
+    },
+    {
+      "file": "results/reference/arima/selected_predictions.json",
+      "original_source": "outputs/sse-arima-improved-20260914/selected_predictions.json",
+      "original_sha256": "970566dbf1a40d3d995976bef04a26a8600781b85ba60d54b9122b19baf32a5d",
+      "published_sha256": "970566dbf1a40d3d995976bef04a26a8600781b85ba60d54b9122b19baf32a5d"
+    },
+    {
+      "file": "results/reference/arima/protocol.json",
+      "original_source": "outputs/sse-arima-improved-20260914/protocol.json",
+      "original_sha256": "230322e7e6d792800a058f56074375832528a9e71a2fdcdf7e9262f408cfe413",
+      "published_sha256": "230322e7e6d792800a058f56074375832528a9e71a2fdcdf7e9262f408cfe413"
+    },
+    {
+      "file": "results/reference/arima/selection.json",
+      "original_source": "outputs/sse-arima-improved-20260914/selection.json",
+      "original_sha256": "7755c1ab836623b297a34fe562a8f39c7a70c083c83da57996055218db1293ab",
+      "published_sha256": "7755c1ab836623b297a34fe562a8f39c7a70c083c83da57996055218db1293ab"
+    },
+    {
+      "file": "results/reference/arima/differencing_diagnostics.json",
+      "original_source": "outputs/sse-arima-improved-20260914/differencing_diagnostics.json",
+      "original_sha256": "81e57ab76b87ebca0c0f3c6969198effdaf4e6605a49d1a4c90074b9a72bac0e",
+      "published_sha256": "81e57ab76b87ebca0c0f3c6969198effdaf4e6605a49d1a4c90074b9a72bac0e"
+    },
+    {
+      "file": "results/reference/arima/validation_scores.json",
+      "original_source": "outputs/sse-arima-improved-20260914/validation_scores.json",
+      "original_sha256": "8155d77b79828eba322fe3e8fb12dfec5252dd497bb4f3606d70d587a9b8b225",
+      "published_sha256": "8155d77b79828eba322fe3e8fb12dfec5252dd497bb4f3606d70d587a9b8b225"
+    },
+    {
+      "file": "results/reference/patchtst/metrics.json",
+      "original_source": "outputs/sse-patchtst-20260914/metrics.json",
+      "original_sha256": "a29230a6c0689ac33285b58beddacc3bcc8c8355c891435c553b36d1517d76ca",
+      "published_sha256": "a29230a6c0689ac33285b58beddacc3bcc8c8355c891435c553b36d1517d76ca"
+    },
+    {
+      "file": "results/reference/patchtst/predictions.json",
+      "original_source": "outputs/sse-patchtst-20260914/predictions.json",
+      "original_sha256": "78cd3fb61714a85d1dd0731b66dc53735943172a578332362cfa3f509959455b",
+      "published_sha256": "78cd3fb61714a85d1dd0731b66dc53735943172a578332362cfa3f509959455b"
+    },
+    {
+      "file": "results/reference/patchtst/protocol.json",
+      "original_source": "outputs/sse-patchtst-20260914/protocol.json",
+      "original_sha256": "98150de3fcceec287e15b5043b058e56b66450fced5bdc2bc88e39e4d56cec9f",
+      "published_sha256": "98150de3fcceec287e15b5043b058e56b66450fced5bdc2bc88e39e4d56cec9f"
+    },
+    {
+      "file": "results/reference/timesfm/metrics.json",
+      "original_source": "outputs/sse-timesfm-20260914/metrics.json",
+      "original_sha256": "8072c79534f0712a651870e42e9d5323c110f6dd9ac38f4fcf86f9d58a08bdaa",
+      "published_sha256": "8072c79534f0712a651870e42e9d5323c110f6dd9ac38f4fcf86f9d58a08bdaa"
+    },
+    {
+      "file": "results/reference/timesfm/predictions.json",
+      "original_source": "outputs/sse-timesfm-20260914/predictions.json",
+      "original_sha256": "3af3c6198a6a4f8474f23adf4a1e81d853cd59e9b781447bbb5f44664c2b1edd",
+      "published_sha256": "3af3c6198a6a4f8474f23adf4a1e81d853cd59e9b781447bbb5f44664c2b1edd"
+    },
+    {
+      "file": "results/reference/timesfm/protocol.json",
+      "original_source": "outputs/sse-timesfm-20260914/protocol.json",
+      "original_sha256": "7074baa13e907ffa7eeae6b5a0a72f49a811dd5c036ec2f39ed1d2709429643a",
+      "published_sha256": "7074baa13e907ffa7eeae6b5a0a72f49a811dd5c036ec2f39ed1d2709429643a"
+    },
+    {
+      "file": "results/reference/arima/original_metrics.json",
+      "original_source": "outputs/sse-arima-20260914/metrics.json",
+      "original_sha256": "b75ef5761887d88aba52ff9b8b5b708fe30cfee3a4f5c21d825ee71533b91c90",
+      "published_sha256": "b75ef5761887d88aba52ff9b8b5b708fe30cfee3a4f5c21d825ee71533b91c90"
+    },
+    {
+      "file": "results/reference/arima/original_predictions.json",
+      "original_source": "outputs/sse-arima-20260914/predictions.json",
+      "original_sha256": "f89e591d93418a870969db872dd0dcfacae5d86d9485109cef514ee6a05405ab",
+      "published_sha256": "924190d4e4f09d63844d1cd3f9c4d6b8d68579106107334df9f8c4f8b13e8361"
+    }
+  ],
+  "figures": {
+    "reports/figures/arima.png": "2157f83aeec3d88e3293117e7861fa72cacf8efac9b893da9f339efa2df84383",
+    "reports/figures/lstm.png": "fe32c42a4c3d276a036e537ba147b5e9d210a30dc2de8bb14a7418eee47aa3ce",
+    "reports/figures/monthly.png": "9d630a99f1aa8473744b6f57b6b4a957d9b6fac017a7cf143e7d0a03c37eb0e1",
+    "reports/figures/overview.png": "1d72932249b72b529bf0e9aee6baa3e792fdc633d097bf2ce24b6a084916f713",
+    "reports/figures/patchtst.png": "0f696194ed45ac6c8dc990482b973b90038d3657945616b5ab8309bb051e705b",
+    "reports/figures/timesfm.png": "632dc24034ff837259604deec522b36f4f81c1003f04f6ce841a792237656311"
+  },
+  "report_pdf": {
+    "path": "reports/experiment-report.pdf",
+    "sha256": "1e840e521eb2b1b495be3001fcb3d1a029b34826b247b5f1b2b783d825b8df59"
+  }
+}

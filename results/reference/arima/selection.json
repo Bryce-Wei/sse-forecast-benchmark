@@ -1,0 +1,30 @@
+{
+  "primary_candidate_id": "000_c_252",
+  "primary_candidate": {
+    "name": "Historical mean",
+    "order": [
+      0,
+      0,
+      0
+    ],
+    "trend": "c",
+    "window": 252,
+    "id": "000_c_252"
+  },
+  "window_winner_ids": [
+    "000_c_126",
+    "000_c_252",
+    "000_c_expanding"
+  ],
+  "validation_baseline_score": {
+    "n": 242,
+    "point_rmse": 30.63091407728655,
+    "point_mae": 20.533387743737087,
+    "return_rmse": 0.008476897216261652,
+    "return_mae": 0.0055054273669007435,
+    "direction_accuracy": null,
+    "direction_coverage": 0.0
+  },
+  "candidate_beats_baseline_on_validation": true,
+  "selection_frozen_before_review": true
+}

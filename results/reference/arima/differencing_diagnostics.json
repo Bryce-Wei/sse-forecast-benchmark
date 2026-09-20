@@ -1,0 +1,135 @@
+[
+  {
+    "known_before": "2025-03-14",
+    "series": "log_index_level",
+    "n": 484,
+    "adf_stat": -2.055654225716055,
+    "adf_p": 0.2627158348323596,
+    "adf_lags": 9,
+    "kpss_stat": 0.5993718885742402,
+    "kpss_p_reported_bound": 0.022693464675069074,
+    "kpss_lags": 12,
+    "acf_lag1": 0.9812881995322063,
+    "warnings": []
+  },
+  {
+    "known_before": "2025-03-14",
+    "series": "log_returns",
+    "n": 484,
+    "adf_stat": -7.014770669213368,
+    "adf_p": 6.777172939566256e-10,
+    "adf_lags": 8,
+    "kpss_stat": 0.11456345448129293,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 3,
+    "acf_lag1": 0.07092788000556734,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2025-03-14",
+    "series": "differenced_log_returns",
+    "n": 483,
+    "adf_stat": -8.88057748757155,
+    "adf_p": 1.3213519431083718e-14,
+    "adf_lags": 18,
+    "kpss_stat": 0.07728628057762105,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 60,
+    "acf_lag1": -0.5189544217839923,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2025-09-14",
+    "series": "log_index_level",
+    "n": 610,
+    "adf_stat": -0.8230042079244404,
+    "adf_p": 0.8122711933068771,
+    "adf_lags": 9,
+    "kpss_stat": 1.3763250551489778,
+    "kpss_p_reported_bound": 0.01,
+    "kpss_lags": 16,
+    "acf_lag1": 0.9838542326629929,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is smaller than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2025-09-14",
+    "series": "log_returns",
+    "n": 610,
+    "adf_stat": -8.069168639494444,
+    "adf_p": 1.5663978209697537e-12,
+    "adf_lags": 8,
+    "kpss_stat": 0.23059157757202373,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 3,
+    "acf_lag1": 0.05783571277427829,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2025-09-14",
+    "series": "differenced_log_returns",
+    "n": 609,
+    "adf_stat": -10.094906665984523,
+    "adf_p": 1.0973493089097562e-17,
+    "adf_lags": 18,
+    "kpss_stat": 0.06276489958650892,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 66,
+    "acf_lag1": -0.5037846781725392,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2026-03-14",
+    "series": "log_index_level",
+    "n": 726,
+    "adf_stat": -0.42980113930719915,
+    "adf_p": 0.9050028905026982,
+    "adf_lags": 9,
+    "kpss_stat": 2.632042999596483,
+    "kpss_p_reported_bound": 0.01,
+    "kpss_lags": 17,
+    "acf_lag1": 0.9928504204842994,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is smaller than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2026-03-14",
+    "series": "log_returns",
+    "n": 726,
+    "adf_stat": -8.896539876711705,
+    "adf_p": 1.2026812270672537e-14,
+    "adf_lags": 8,
+    "kpss_stat": 0.21058341836060718,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 3,
+    "acf_lag1": 0.05280693538790654,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  },
+  {
+    "known_before": "2026-03-14",
+    "series": "differenced_log_returns",
+    "n": 725,
+    "adf_stat": -10.34062093303819,
+    "adf_p": 2.6912459165411916e-18,
+    "adf_lags": 20,
+    "kpss_stat": 0.06781460382818294,
+    "kpss_p_reported_bound": 0.1,
+    "kpss_lags": 62,
+    "acf_lag1": -0.4895662971229507,
+    "warnings": [
+      "The test statistic is outside of the range of p-values available in the\nlook-up table. The actual p-value is greater than the p-value returned.\n"
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "model_id": "google/timesfm-2.5-200m-pytorch",
+  "model_revision": "1d952420fba87f3c6dee4f240de0f1a0fbc790e3",
+  "last_modified": "2025-10-02T17:21:38.000Z",
+  "downloaded_from": "https://huggingface.co/google/timesfm-2.5-200m-pytorch/resolve/1d952420fba87f3c6dee4f240de0f1a0fbc790e3/",
+  "files": {
+    "config.json": {
+      "bytes": 475,
+      "sha256": "cd3315b760d5cc7e278d7afdf41b897031ced888fc6c115bd9b3ac0ea2c47408"
+    },
+    "README.md": {
+      "bytes": 2496,
+      "sha256": "4c3f16633a3d8b9324904bf004429aced2ee009b84e64effb59a902520cc7f2e"
+    },
+    "model.safetensors": {
+      "bytes": 925181104,
+      "sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8"
+    }
+  },
+  "code_distribution": "timesfm==2.0.1",
+  "code_revision": "e56854bc9e16427c65656ee735ab4ddaa18bea67",
+  "local_training": false,
+  "note": "Reference source and checkpoint metadata from the original experiment; not a verification of the current machine."
+}

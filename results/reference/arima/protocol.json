@@ -1,0 +1,220 @@
+{
+  "source_raw_sha256": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+  "training_start": "2023-03-14",
+  "validation_start": "2025-03-14",
+  "validation_mid": "2025-09-14",
+  "review_start_cutoff": "2026-03-14",
+  "review_end": "2026-09-11",
+  "primary_selection_metric": "pooled validation index-point RMSE; numerical tie by candidate id",
+  "configurations": [
+    {
+      "name": "Original ARIMA(5,1,0)",
+      "order": [
+        5,
+        1,
+        0
+      ],
+      "trend": "n",
+      "window": 126,
+      "id": "510_n_126"
+    },
+    {
+      "name": "Original ARIMA(5,1,0)",
+      "order": [
+        5,
+        1,
+        0
+      ],
+      "trend": "n",
+      "window": 252,
+      "id": "510_n_252"
+    },
+    {
+      "name": "Original ARIMA(5,1,0)",
+      "order": [
+        5,
+        1,
+        0
+      ],
+      "trend": "n",
+      "window": null,
+      "id": "510_n_expanding"
+    },
+    {
+      "name": "AR(5), no extra differencing",
+      "order": [
+        5,
+        0,
+        0
+      ],
+      "trend": "n",
+      "window": 126,
+      "id": "500_n_126"
+    },
+    {
+      "name": "AR(5), no extra differencing",
+      "order": [
+        5,
+        0,
+        0
+      ],
+      "trend": "n",
+      "window": 252,
+      "id": "500_n_252"
+    },
+    {
+      "name": "AR(5), no extra differencing",
+      "order": [
+        5,
+        0,
+        0
+      ],
+      "trend": "n",
+      "window": null,
+      "id": "500_n_expanding"
+    },
+    {
+      "name": "Historical mean",
+      "order": [
+        0,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": 126,
+      "id": "000_c_126"
+    },
+    {
+      "name": "Historical mean",
+      "order": [
+        0,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": 252,
+      "id": "000_c_252"
+    },
+    {
+      "name": "Historical mean",
+      "order": [
+        0,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": null,
+      "id": "000_c_expanding"
+    },
+    {
+      "name": "AR(1)",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": 126,
+      "id": "100_c_126"
+    },
+    {
+      "name": "AR(1)",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": 252,
+      "id": "100_c_252"
+    },
+    {
+      "name": "AR(1)",
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "trend": "c",
+      "window": null,
+      "id": "100_c_expanding"
+    },
+    {
+      "name": "MA(1)",
+      "order": [
+        0,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": 126,
+      "id": "001_c_126"
+    },
+    {
+      "name": "MA(1)",
+      "order": [
+        0,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": 252,
+      "id": "001_c_252"
+    },
+    {
+      "name": "MA(1)",
+      "order": [
+        0,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": null,
+      "id": "001_c_expanding"
+    },
+    {
+      "name": "ARMA(1,1)",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": 126,
+      "id": "101_c_126"
+    },
+    {
+      "name": "ARMA(1,1)",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": 252,
+      "id": "101_c_252"
+    },
+    {
+      "name": "ARMA(1,1)",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "trend": "c",
+      "window": null,
+      "id": "101_c_expanding"
+    }
+  ],
+  "baseline": "zero return / previous observed close",
+  "selection_rule": "Choose best eligible candidate on validation only; retain baseline as default if candidate does not beat it on validation. Freeze one winner per window for secondary comparison.",
+  "historical_review_status": "Already seen under original model; historical re-evaluation, not a virgin test set.",
+  "retries": "lbfgs200, lbfgs1000, powell1000; any remaining failure disqualifies entire configuration, never drop dates.",
+  "bootstrap_blocks": [
+    5,
+    10
+  ],
+  "bootstrap_replications": 5000,
+  "fit_scale": 100,
+  "stability_rule": "Report both temporal halves, all seven calendar-month segments (March and September partial), and paired block-bootstrap CIs vs original and zero-return baseline. No post-review re-selection."
+}

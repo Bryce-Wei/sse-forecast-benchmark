@@ -1,0 +1,25 @@
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Provider caches and generated experiments are kept local
+data/*.json
+data/*.part
+data/*.csv
+runs/
+.cache/
+*.safetensors
+*.keras
+*.pt
+*.pth
+*.ckpt
+*.log

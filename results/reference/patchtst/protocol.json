@@ -1,0 +1,29 @@
+{
+  "symbol": "000001.SS",
+  "train_years": 2,
+  "history": 20,
+  "horizon": 1,
+  "features": [
+    "close"
+  ],
+  "target": "next trading observation close",
+  "review_start": "2026-06-15",
+  "review_end": "2026-09-11",
+  "review_count": 64,
+  "max_epochs": 40,
+  "validation_targets": 40,
+  "batch_size": 32,
+  "seed": 88,
+  "loss": "MAE",
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "gradient_clip_value": 1.0,
+  "selection": "Every target day: final40 historical target dates select epoch, then fresh full-window refit",
+  "scaler": "Historical mean/population std; validation fit excludes validation observations; final fit uses all past2y",
+  "window": "[target date minus 2 calendar years, target date); all sample inputs and labels inside window",
+  "sampling": "20 consecutive observations, stride1; full shuffled epochs, no repetition to arbitrary update count",
+  "initialization": "New model and optimizer for both validation fitting and final fitting each day, seed88",
+  "source_hash": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+  "comparison_note": "Matched information and training-budget rules; PatchTST includes its official RevIN, LSTM follows classroom layers. Model-configuration comparison, not isolated attention effect.",
+  "historical_note": "These64 dates were already examined in earlier experiments; retrospective review, not untouched final test."
+}

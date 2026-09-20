@@ -1,0 +1,268 @@
+{
+  "data": {
+    "symbol": "000001.SS",
+    "review_start": "2026-06-15",
+    "review_end": "2026-09-11",
+    "review_count": 64,
+    "initial_train_start": "2024-06-17",
+    "initial_train_end": "2026-06-12",
+    "last_train_start": "2024-09-11",
+    "last_train_end": "2026-09-10",
+    "input_history": 32
+  },
+  "overall": {
+    "timesfm": {
+      "rmse": 47.039808565936916,
+      "mae": 34.64834976196289
+    },
+    "lstm": {
+      "rmse": 55.0818371608318,
+      "mae": 43.43229272088898
+    },
+    "baseline": {
+      "rmse": 42.31115942025027,
+      "mae": 32.257781982421875
+    }
+  },
+  "monthly": [
+    {
+      "month": "2026-06",
+      "count": 11,
+      "timesfm": {
+        "rmse": 47.04756794344877,
+        "mae": 32.94420276988637
+      },
+      "lstm": {
+        "rmse": 69.39352836985552,
+        "mae": 52.54109363883014
+      },
+      "baseline": {
+        "rmse": 47.36153948620668,
+        "mae": 36.99624911221591
+      }
+    },
+    {
+      "month": "2026-07",
+      "count": 23,
+      "timesfm": {
+        "rmse": 59.304820670787166,
+        "mae": 44.34163765285326
+      },
+      "lstm": {
+        "rmse": 59.26447569940611,
+        "mae": 44.65520703722294
+      },
+      "baseline": {
+        "rmse": 51.39597314051331,
+        "mae": 41.93795643682065
+      }
+    },
+    {
+      "month": "2026-08",
+      "count": 21,
+      "timesfm": {
+        "rmse": 38.88932392774477,
+        "mae": 32.18745349702381
+      },
+      "lstm": {
+        "rmse": 47.918156787774144,
+        "mae": 42.687656963912495
+      },
+      "baseline": {
+        "rmse": 34.40233673447262,
+        "mae": 26.218726748511905
+      }
+    },
+    {
+      "month": "2026-09",
+      "count": 9,
+      "timesfm": {
+        "rmse": 22.644571153629975,
+        "mae": 17.701551649305557
+      },
+      "lstm": {
+        "rmse": 36.82532654757143,
+        "mae": 30.91157177905259
+      },
+      "baseline": {
+        "rmse": 21.835812562885724,
+        "mae": 15.819227430555555
+      }
+    }
+  ],
+  "direction_accuracy": {
+    "timesfm": 0.578125,
+    "lstm": 0.5625
+  },
+  "actual_up_days": 37,
+  "return_errors": {
+    "timesfm": {
+      "rmse": 0.011930146122874826,
+      "mae": 0.008766919788895735
+    },
+    "lstm": {
+      "rmse": 0.013907953233563641,
+      "mae": 0.01097338946472299
+    },
+    "baseline": {
+      "rmse": 0.01071080876847235,
+      "mae": 0.008164947939591542
+    }
+  },
+  "source": {
+    "model_id": "google/timesfm-2.5-200m-pytorch",
+    "model_revision": "1d952420fba87f3c6dee4f240de0f1a0fbc790e3",
+    "code_revision": "e56854bc9e16427c65656ee735ab4ddaa18bea67",
+    "code_distribution": "timesfm==2.0.1",
+    "raw_hash": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+    "checkpoint_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+    "model_last_modified": "2025-10-02T17:21:38.000Z"
+  },
+  "protocol": {
+    "symbol": "000001.SS",
+    "train_years": 2,
+    "history": 32,
+    "horizon": 1,
+    "features": [
+      "close"
+    ],
+    "target": "next trading observation close",
+    "review_start": "2026-06-15",
+    "review_end": "2026-09-11",
+    "review_count": 64,
+    "max_epochs": 40,
+    "validation_targets": 40,
+    "batch_size": 32,
+    "seed": 88,
+    "loss": "MAE",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "gradient_clip_value": 1.0,
+    "selection": "LSTM only: every target day final40 historical target dates select epoch, then fresh full-window refit; TimesFM no fitting or test-driven parameter selection",
+    "scaler": "Historical mean/population std; validation fit excludes validation observations; final fit uses all past2y",
+    "window": "[target date minus 2 calendar years, target date); all sample inputs and labels inside window",
+    "sampling": "32 consecutive observations, stride1; full shuffled epochs, no repetition to arbitrary update count",
+    "initialization": "LSTM: new model and optimizer for both validation fitting and final fitting each day, seed88; TimesFM: frozen pretrained checkpoint",
+    "source_hash": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+    "comparison_note": "Same dates, Close target, and latest32 real observations. LSTM freshly retrained daily on preceding2 calendar years; TimesFM2.5 frozen external pretrained weights, zero-shot with no local fitting. Training information and compute are not matched.",
+    "historical_note": "These64 dates were already examined in earlier experiments; retrospective review, not untouched final test."
+  },
+  "reload_checks": {
+    "timesfm": [
+      {
+        "date": "2026-06-15",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      },
+      {
+        "date": "2026-07-30",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      },
+      {
+        "date": "2026-09-11",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      }
+    ],
+    "lstm": [
+      {
+        "date": "2026-06-15",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      },
+      {
+        "date": "2026-07-30",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      },
+      {
+        "date": "2026-09-11",
+        "absolute_difference_points": 0.0,
+        "passed": true
+      }
+    ]
+  },
+  "models": {
+    "timesfm": {
+      "model_id": "google/timesfm-2.5-200m-pytorch",
+      "model_revision": "1d952420fba87f3c6dee4f240de0f1a0fbc790e3",
+      "checkpoint_sha256": "2f776efe6245e42b24bc4153ffdf61810140210e4bd3b01fb21f7aa779ab6ce8",
+      "parameters": 231289280,
+      "state_hash_before": "02241f927233d3a7a7d0868019644269272cb7c24461b6b7a327977bf9262f7d",
+      "state_hash_after": "02241f927233d3a7a7d0868019644269272cb7c24461b6b7a327977bf9262f7d",
+      "all_parameters_frozen": true,
+      "forecast_config": {
+        "max_context": 32,
+        "max_horizon": 128,
+        "per_core_batch_size": 1,
+        "normalize_inputs": true,
+        "use_continuous_quantile_head": true,
+        "force_flip_invariance": true,
+        "infer_is_positive": true,
+        "fix_quantile_crossing": true,
+        "return_backcast": false
+      },
+      "source_file_hashes": {
+        "configs.py": "0bb2d1fb8f4980bb2f731dd980fc1fd8d0be291b235d3d3e642618052155035e",
+        "__init__.py": "076a60ca3737860230410aace41b8987db59cb772fd68c77f5b872a7f248241b",
+        "flax/dense.py": "be4703b9e35f717811d472fad6f08e5b3c0708a1fd4eb7a2400349ccc2b6fcf8",
+        "flax/normalization.py": "2867823407ed6555ed13fe7fa5f05e7013632730cca7a24e0a5d96a0f741bc43",
+        "flax/transformer.py": "2bda8edf59796f051ff7397e9b297c1c396d0240be3b80a849683cba9eef226e",
+        "flax/util.py": "d9214b3bac474fce3086e36e9952306535d73da83e5caaca2b685b8fbe20ae63",
+        "flax/__init__.py": "43d16544ed887d213dc846a2018cd690e30124f09a358aa1e2285ca74b74050b",
+        "timesfm_2p5/timesfm_2p5_base.py": "35a9f096cf676b2d4c84b0bc6f66a756bea4c91e7e7da27d0b165ba95875bf57",
+        "timesfm_2p5/timesfm_2p5_flax.py": "d3313809ece84522bf678077c34128cbde046af4b91a5d4127f46dd15913c642",
+        "timesfm_2p5/timesfm_2p5_torch.py": "6c27937683d112e76d18b96c47ae3fe6f5b2bcd15ec75234a8b95f2435fa04dd",
+        "torch/dense.py": "28894985384eaa3dda7b1b882d5bb8426d8b274b2d9a01cb14c4651c0584ec1d",
+        "torch/normalization.py": "c37b56afd198aebf5ef71ee04ef244a63318da2e4a0497ec9b319088f6cc5154",
+        "torch/transformer.py": "744a0e1e41c1262150998fbc621bb7e4bb2fb9c79b0fe46e70dea744511962bb",
+        "torch/util.py": "c700a82459e115a1c6c9797058e6e3272aa79e8705a11d48d83489b67766e917",
+        "torch/__init__.py": "43d16544ed887d213dc846a2018cd690e30124f09a358aa1e2285ca74b74050b",
+        "utils/xreg_lib.py": "4609b3c11aa1744db365c8a1f707f72a49b68948bc5d6b1e0ebd886772a3f4d2"
+      },
+      "packages": {
+        "timesfm": "2.0.1",
+        "torch": "2.14.0",
+        "numpy": "1.26.4",
+        "huggingface_hub": "0.34.4",
+        "safetensors": "0.6.2"
+      },
+      "device": "cpu",
+      "torch_compile": false,
+      "local_training": false,
+      "complete_count": 64,
+      "elapsed_seconds": 8.84299999999348
+    },
+    "lstm": {
+      "parameters": 7505,
+      "config": {
+        "architecture": "LSTM(32, return_sequences=True) -> LSTM(16, activation=relu) -> Dense(1)",
+        "input_shape": [
+          32,
+          1
+        ],
+        "features": [
+          "close"
+        ],
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "clipvalue": 1.0,
+        "loss": "MAE",
+        "batch_size": 32,
+        "max_selection_epochs": 40,
+        "validation_targets": 40,
+        "seed": 88,
+        "revin": false,
+        "selection_rule": "Minimum MAE on final40 historical target dates; earliest epoch wins ties",
+        "refit_rule": "Fresh seed88 model and optimizer, all past2y samples, selected number of full epochs"
+      },
+      "epochs_min": 27,
+      "epochs_max": 40,
+      "epochs_median": 38.0,
+      "epochs_at_cap": 19,
+      "train_observations_min": 482,
+      "train_observations_max": 485
+    }
+  }
+}
