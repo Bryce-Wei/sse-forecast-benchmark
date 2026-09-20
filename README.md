@@ -4,7 +4,7 @@ ARIMA · LSTM · PatchTST · TimesFM 2.5
 
 本仓库将上证指数预测实验整理为可复核的代码、结果与图文报告。PatchTST 使用原作者实现，TimesFM 使用 Google Research 官方预训练模型；模型来源及许可见 [第三方声明](THIRD_PARTY_NOTICES.md)。
 
-[阅读原版 PDF](reports/experiment-report.pdf) · [运行方法](#七-运行与复现) · [核验原实验结果](results/reference/)
+[阅读原版 PDF](reports/experiment-report.pdf) · [绘图源代码](scripts/render_report_figures.py) · [运行方法](#七-运行与复现) · [核验原实验结果](results/reference/)
 
 报告日期：2026年9月20日。实验行情截至2026年9月11日。研究对象为上证指数日线，重点检验模型能否预测下一交易日收盘，而不是仅仅画出贴近历史的曲线。
 
@@ -65,9 +65,9 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 
 **改进方法：**对收益再设d＝1可能造成额外差分。用ADF、KPSS及自相关检查，再固定6种结构×3种窗口，共18个候选；窗口为126条收益、252条收益或扩展窗口。只按更早验证期的点位RMSE选择，结果为ARIMA(0,0,0)含常数、252条收益窗口，实质是历史平均收益。
 
-![图2  半年125次逐日预测。上图为点位，下图为日对数收益。预测收益接近零时，还原后的点位仍会跟随前日收盘变化，点位曲线贴近并不代表抓住了次日涨跌。](reports/figures/arima.png)
+![图2 ARIMA：真实历史与测试期对比，下方放大125日测试区。](reports/figures/arima.png)
 
-图2  半年125次逐日预测。上图为点位，下图为日对数收益。预测收益接近零时，还原后的点位仍会跟随前日收盘变化，点位曲线贴近并不代表抓住了次日涨跌。
+图2  上图左侧是首次预测所需的253条真实收盘，对应252条历史收益；右侧为125日预测与真实走势。下图放大测试区。预测收益接近零时，还原后的点位仍会跟随前日收盘变化，点位曲线贴近并不代表抓住了次日涨跌。另见[日对数收益诊断图](reports/figures/arima_returns.png)。
 
 | 方法 | RMSE | MAE |
 | --- | --- | --- |
@@ -87,9 +87,9 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 
 **后期结构：**LSTM 32单元 → LSTM 16单元（ReLU）→ Dense 1。每日只用过去数据；内部验证选择训练轮数后，重新初始化模型、优化器和全历史标准化，再拟合全部已知训练样本。
 
-![图3  32日输入版本的64次次日预测。绿色为本轮重新训练的LSTM，红色为真实收盘，灰色为前日收盘基准。部分拐点附近出现滞后和较大偏差。](reports/figures/lstm.png)
+![图3 LSTM：左侧为真实训练历史，右侧为预测与真实对比，下方放大测试区。](reports/figures/lstm.png)
 
-图3  32日输入版本的64次次日预测。绿色为本轮重新训练的LSTM，红色为真实收盘，灰色为前日收盘基准。部分拐点附近出现滞后和较大偏差。
+图3  上图左侧为首次训练的两年真实历史，右侧为32日输入版本的64次次日预测；下图放大测试区。绿色为LSTM，红色为真实收盘，灰色为前日基准。训练实现独立位于 `experiments/lstm/`，20日与32日仅是同一实现的不同输入参数。
 
 | 同一64日期 | RMSE | MAE |
 | --- | --- | --- |
@@ -170,9 +170,10 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 - ARIMA：[原始与改进结果](results/reference/arima/)。
 - LSTM 与 PatchTST：[20 日输入配对结果](results/reference/patchtst/)。
 - TimesFM 与 LSTM：[32 日输入配对结果](results/reference/timesfm/)。
+- 独立 LSTM：[20日归档](results/reference/lstm/history_20/)与[32日归档](results/reference/lstm/history_32/)，由对应配对结果逐列提取，数值保持一致。
 - [发布归档清单与校验值](results/reference/manifest.json)。
 
-上述图表来自已完成实验的真实预测记录。PDF 保留原报告内容；其中 `sse-*-20260914` 是原实验目录名，在本仓库分别对应上述归档目录。归档数据可以离线重新计算误差。重新训练写入 `runs/`，不会覆盖本文结果。
+上述图表来自已完成实验的真实预测记录。当前预测图统一为上方“左侧真实历史、右侧测试对比”及下方“测试期放大”。PDF 保留原版报告，其六幅原布局图同样可以通过仓库内代码重建；PDF 中 `sse-*-20260914` 是原实验目录名。归档数据可以离线重新计算误差，重新训练写入 `runs/`。
 
 ## 七 运行与复现
 
@@ -184,7 +185,7 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 python scripts/verify_results.py
 ```
 
-这一步仅使用 Python 标准库，不下载行情、不训练网络：重新计算 18 个 MAE/RMSE 指标，核验时间顺序、两组实验共同的真实收盘与前日基准，并检查 14 份归档 JSON、6 幅图和 PDF 的哈希。
+这一步仅使用 Python 标准库，不下载行情、不训练网络：重新计算报告中的18个 MAE/RMSE 指标，逐行核对独立 LSTM 与配对实验中的记录，验证时间顺序、共同基准及归档文件、图表和 PDF 的哈希。
 
 ### 安装环境与准备行情
 
@@ -209,6 +210,19 @@ python scripts/fetch_data.py --from-file /path/to/yahoo_raw.json
 
 Yahoo 可能限流或修订历史数据。程序校验行情，并记录规范化日期/收盘价指纹；新下载数据不保证与原实验快照完全相同。参考指纹见 [manifest.json](results/reference/manifest.json)。这些入口复现固定的历史实验，修改股票或日期还需同步调整协议与样本数。
 
+### 重画报告图与原版 PDF 图
+
+安装基础依赖并准备好与归档指纹一致的历史行情后，可直接重画；无需 TensorFlow、PyTorch、TimesFM 权重或重新训练：
+
+```bash
+python scripts/render_report_figures.py
+python scripts/render_report_figures.py --layout original --output runs/pdf-original-figures
+```
+
+第一条生成当前 README 的六幅主图及 ARIMA 收益率诊断图，默认写入 `reports/figures/`。第二条重建原版 PDF 的六幅图及原始布局。每次生成会核对34项 RMSE、真实历史与归档收盘是否一致，并保存图表来源与日期范围清单。
+
+字体不同可能改变图片字节。中文图需要 Microsoft YaHei、Noto Sans CJK SC 等字体；没有中文字体时可加 `--language en`。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
+
 ### ARIMA
 
 ```bash
@@ -217,6 +231,25 @@ python experiments/arima/run_all.py --workers 3
 ```
 
 第一条仅验证原模型两天和 18 个候选各一次拟合；第二条依次运行原 ARIMA、验证期选择、半年历史复核及绘图。详细说明见 [ARIMA 实验入口](experiments/arima/README.md)。
+
+### 独立 LSTM：20日或32日输入
+
+```bash
+python -m pip install -r requirements/lstm.txt
+python experiments/lstm/run_all.py --history 20 --limit 1
+python experiments/lstm/run_all.py --history 32 --limit 1
+```
+
+去掉 `--limit 1` 即分别运行完整64日。训练核心只有 [experiments/lstm/train.py](experiments/lstm/train.py) 一份，缓存分别放在 `runs/lstm/history_20/` 和 `runs/lstm/history_32/`。PatchTST/TimesFM 对比会调用同一入口并复用相应结果，核对配置、日期、数据指纹和输入窗口，防止两种缓存混用。
+
+只画已有的独立 LSTM 归档结果：
+
+```bash
+python experiments/lstm/render_comparison.py --history 20 --reference
+python experiments/lstm/render_comparison.py --history 32 --reference
+```
+
+输出位于 `runs/lstm_reference/history_20/` 和 `history_32/`，同样采用历史/测试及测试放大布局。
 
 ### PatchTST 与 LSTM：20 日输入
 
@@ -240,32 +273,35 @@ python experiments/timesfm/run_all.py
 
 ### 输出、验证范围与目录
 
-完整运行后，各实验在 `runs/` 下保存逐日预测、指标、模型和图表。只运行 `--limit 1` 不会生成完整 64 日指标。LSTM 可分别通过配对目录中的 `run_lstm.py` 单独运行。
+完整运行后，各实验在 `runs/` 下保存逐日预测、指标、模型和图表。只运行 `--limit 1` 不会生成完整64日指标。所有 LSTM 训练统一从 `experiments/lstm/` 调用；配对目录的旧 `run_lstm.py` 仅保留为兼容入口。
 
 此次仓库整理已完成：
 
-- 归档结果离线核验、5 项数据完整性测试和 Python 编译检查。
+- 归档结果离线核验、数据完整性与绘图时间分界测试，以及 Python 编译检查。
 - ARIMA 原模型两日和 18 个候选的有限拟合验证。
 - PatchTST、LSTM20、LSTM32 的首日完整训练，以及 TimesFM 首日实际推理和模型重新加载验证；四条分支的首日预测与原实验记录一致。
 - 没有在发布时重新执行全部 64 日网络训练；本文全期指标来自已归档的原实验。
 
 ```bash
 python -m unittest discover -s tests -v
+python -m unittest experiments.lstm.test_protocol -v
 ```
 
 ```text
 sse-forecast-benchmark/
 ├── README.md                  # 本图文实验报告与运行指南
 ├── benchmark_support.py       # 行情校验与数据指纹
+├── forecast_plotting.py       # 四种方法共用的历史/测试布局
 ├── experiments/
 │   ├── arima/                 # 原模型、参数/窗口比较与绘图
-│   ├── patchtst/              # PatchTST 和 LSTM20
-│   └── timesfm/               # TimesFM 2.5 和 LSTM32
+│   ├── patchtst/              # PatchTST，调用共享 LSTM20 对比
+│   ├── timesfm/               # TimesFM 2.5，调用共享 LSTM32 对比
+│   └── lstm/                  # 独立 LSTM；同一训练实现支持20/32日
 ├── requirements/              # 按实验拆分的固定依赖
-├── scripts/                   # 行情下载与归档结果核验
-├── tests/                     # 数据完整性测试
+├── scripts/                   # 行情下载、结果核验、PDF/报告图重建
+├── tests/                     # 数据完整性与绘图时间分界测试
 ├── results/reference/         # 已发表实验记录与校验清单
-├── reports/                   # 原版 PDF 与六幅图
+├── reports/                   # 原版 PDF、六幅主图与收益率诊断
 ├── third_party/PatchTST/      # 原作者源码子集及许可证
 ├── data/                      # 本地行情缓存，不提交原始数据
 └── runs/                      # 本地新运行输出，不提交模型

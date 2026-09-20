@@ -48,7 +48,9 @@ python experiments/arima/render_comparison.py
 python experiments/arima/run_forecast.py --plot-only
 ```
 
-所有路径从脚本所在仓库定位，不依赖当前工作目录或 Windows 用户目录。图表使用 Matplotlib 自带 DejaVu Sans 和英文标签，可跨平台生成。
+所有路径从脚本所在仓库定位，不依赖当前工作目录或 Windows 用户目录。图表默认使用 Matplotlib 自带 DejaVu Sans 和英文标签；绘图入口和 `run_all.py` 可加 `--language zh` 使用已安装的中文字体。
+
+原版与改进版的点位图、收益率图均采用两层布局：上图左侧为首次预测前的真实历史，右侧为预测与真实值对比，下图放大测试区。点位图通过根目录 `forecast_plotting.py` 与其余模型共用布局。重画 README 及原版 PDF 图请使用根目录的 `scripts/render_report_figures.py`。
 
 ## 输出
 

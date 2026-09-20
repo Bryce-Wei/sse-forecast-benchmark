@@ -1,0 +1,378 @@
+{
+  "method": "Saved archived one-step forecasts; no fitting, downloading, imputation, or editing reference results.",
+  "layout": "standard",
+  "language": "zh",
+  "font_family": "Microsoft YaHei",
+  "minimum_font_points": 9.5,
+  "canonical_prices_sha256": "1f008677ebe57c334b3a6b1755e98600185c60cd07404f077cbe6cf77cd7bf0a",
+  "source_sha256": {
+    "results/reference/manifest.json": "eacd16876d84258324e78c795a9aa65e4d93435f344198ab5795d4a46063ac2c",
+    "data/yahoo_sse.json": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
+    "results/reference/arima/selected_predictions.json": "970566dbf1a40d3d995976bef04a26a8600781b85ba60d54b9122b19baf32a5d",
+    "results/reference/arima/original_predictions.json": "924190d4e4f09d63844d1cd3f9c4d6b8d68579106107334df9f8c4f8b13e8361",
+    "results/reference/arima/comparison_results.json": "f2b124102249c697b5fca73efa111122632af40d1a92332961c4146722fe420c",
+    "results/reference/arima/original_metrics.json": "b75ef5761887d88aba52ff9b8b5b708fe30cfee3a4f5c21d825ee71533b91c90",
+    "results/reference/patchtst/predictions.json": "78cd3fb61714a85d1dd0731b66dc53735943172a578332362cfa3f509959455b",
+    "results/reference/patchtst/metrics.json": "a29230a6c0689ac33285b58beddacc3bcc8c8355c891435c553b36d1517d76ca",
+    "results/reference/timesfm/predictions.json": "3af3c6198a6a4f8474f23adf4a1e81d853cd59e9b781447bbb5f44664c2b1edd",
+    "results/reference/timesfm/metrics.json": "8072c79534f0712a651870e42e9d5323c110f6dd9ac38f4fcf86f9d58a08bdaa"
+  },
+  "history_checks": {
+    "patchtst": {
+      "count": 483,
+      "start": "2024-06-17",
+      "end": "2026-06-12"
+    },
+    "timesfm": {
+      "count": 483,
+      "start": "2024-06-17",
+      "end": "2026-06-12"
+    },
+    "arima": {
+      "count": 253,
+      "start": "2025-02-27",
+      "end": "2026-03-13"
+    },
+    "lstm": {
+      "count": 483,
+      "start": "2024-06-17",
+      "end": "2026-06-12"
+    }
+  },
+  "verified_rmse": {
+    "patchtst_patchtst": {
+      "rmse": 44.936181289184546,
+      "metadata_rmse": 44.936181289184546,
+      "count": 64
+    },
+    "patchtst_lstm": {
+      "rmse": 56.276541425152345,
+      "metadata_rmse": 56.276541425152345,
+      "count": 64
+    },
+    "patchtst_baseline": {
+      "rmse": 42.31115942025027,
+      "metadata_rmse": 42.31115942025027,
+      "count": 64
+    },
+    "timesfm_timesfm": {
+      "rmse": 47.039808565936916,
+      "metadata_rmse": 47.039808565936916,
+      "count": 64
+    },
+    "timesfm_lstm": {
+      "rmse": 55.0818371608318,
+      "metadata_rmse": 55.0818371608318,
+      "count": 64
+    },
+    "timesfm_baseline": {
+      "rmse": 42.31115942025027,
+      "metadata_rmse": 42.31115942025027,
+      "count": 64
+    },
+    "arima_original": {
+      "rmse": 45.201356107471184,
+      "metadata_rmse": 45.20135610746361,
+      "count": 125
+    },
+    "arima_selected": {
+      "rmse": 41.68101563897596,
+      "metadata_rmse": 41.68101563897596,
+      "count": 125
+    },
+    "arima_baseline": {
+      "rmse": 41.42015978996017,
+      "metadata_rmse": 41.42015978996017,
+      "count": 125
+    },
+    "arima_log_return": {
+      "rmse": 0.010495004301188224,
+      "metadata_rmse": 0.010495004301188224,
+      "count": 125
+    },
+    "patchtst_2026-06_patchtst": {
+      "rmse": 51.66595348709178,
+      "metadata_rmse": 51.66595348709178,
+      "count": 11
+    },
+    "patchtst_2026-06_lstm": {
+      "rmse": 73.42472177584645,
+      "metadata_rmse": 73.42472177584645,
+      "count": 11
+    },
+    "patchtst_2026-06_baseline": {
+      "rmse": 47.36153948620668,
+      "metadata_rmse": 47.36153948620668,
+      "count": 11
+    },
+    "patchtst_2026-07_patchtst": {
+      "rmse": 52.63254403657802,
+      "metadata_rmse": 52.63254403657802,
+      "count": 23
+    },
+    "patchtst_2026-07_lstm": {
+      "rmse": 58.796970692213975,
+      "metadata_rmse": 58.796970692213975,
+      "count": 23
+    },
+    "patchtst_2026-07_baseline": {
+      "rmse": 51.39597314051331,
+      "metadata_rmse": 51.39597314051331,
+      "count": 23
+    },
+    "patchtst_2026-08_patchtst": {
+      "rmse": 38.09876127458722,
+      "metadata_rmse": 38.09876127458722,
+      "count": 21
+    },
+    "patchtst_2026-08_lstm": {
+      "rmse": 49.45602945023098,
+      "metadata_rmse": 49.45602945023098,
+      "count": 21
+    },
+    "patchtst_2026-08_baseline": {
+      "rmse": 34.40233673447262,
+      "metadata_rmse": 34.40233673447262,
+      "count": 21
+    },
+    "patchtst_2026-09_patchtst": {
+      "rmse": 25.10757058317179,
+      "metadata_rmse": 25.10757058317179,
+      "count": 9
+    },
+    "patchtst_2026-09_lstm": {
+      "rmse": 37.2845716248942,
+      "metadata_rmse": 37.2845716248942,
+      "count": 9
+    },
+    "patchtst_2026-09_baseline": {
+      "rmse": 21.835812562885724,
+      "metadata_rmse": 21.835812562885724,
+      "count": 9
+    },
+    "timesfm_2026-06_timesfm": {
+      "rmse": 47.04756794344877,
+      "metadata_rmse": 47.04756794344877,
+      "count": 11
+    },
+    "timesfm_2026-06_lstm": {
+      "rmse": 69.39352836985552,
+      "metadata_rmse": 69.39352836985552,
+      "count": 11
+    },
+    "timesfm_2026-06_baseline": {
+      "rmse": 47.36153948620668,
+      "metadata_rmse": 47.36153948620668,
+      "count": 11
+    },
+    "timesfm_2026-07_timesfm": {
+      "rmse": 59.304820670787166,
+      "metadata_rmse": 59.304820670787166,
+      "count": 23
+    },
+    "timesfm_2026-07_lstm": {
+      "rmse": 59.26447569940611,
+      "metadata_rmse": 59.26447569940611,
+      "count": 23
+    },
+    "timesfm_2026-07_baseline": {
+      "rmse": 51.39597314051331,
+      "metadata_rmse": 51.39597314051331,
+      "count": 23
+    },
+    "timesfm_2026-08_timesfm": {
+      "rmse": 38.88932392774477,
+      "metadata_rmse": 38.88932392774477,
+      "count": 21
+    },
+    "timesfm_2026-08_lstm": {
+      "rmse": 47.918156787774144,
+      "metadata_rmse": 47.918156787774144,
+      "count": 21
+    },
+    "timesfm_2026-08_baseline": {
+      "rmse": 34.40233673447262,
+      "metadata_rmse": 34.40233673447262,
+      "count": 21
+    },
+    "timesfm_2026-09_timesfm": {
+      "rmse": 22.644571153629975,
+      "metadata_rmse": 22.644571153629975,
+      "count": 9
+    },
+    "timesfm_2026-09_lstm": {
+      "rmse": 36.82532654757143,
+      "metadata_rmse": 36.82532654757143,
+      "count": 9
+    },
+    "timesfm_2026-09_baseline": {
+      "rmse": 21.835812562885724,
+      "metadata_rmse": 21.835812562885724,
+      "count": 9
+    }
+  },
+  "figures": {
+    "overview.png": {
+      "sha256": "1d72932249b72b529bf0e9aee6baa3e792fdc633d097bf2ce24b6a084916f713",
+      "inches": [
+        6.7,
+        2.65
+      ],
+      "pixels": [
+        1474,
+        583
+      ],
+      "dpi": 220
+    },
+    "monthly.png": {
+      "sha256": "9d630a99f1aa8473744b6f57b6b4a957d9b6fac017a7cf143e7d0a03c37eb0e1",
+      "inches": [
+        6.7,
+        3.1
+      ],
+      "pixels": [
+        1474,
+        682
+      ],
+      "dpi": 220
+    },
+    "arima.png": {
+      "sha256": "d806bda3ae083dbb102dc364c2e2086f45fdb07a44b929a6a6c52943e9658057",
+      "inches": [
+        6.7,
+        3.5
+      ],
+      "pixels": [
+        1474,
+        770
+      ],
+      "dpi": 220,
+      "layout": "history_and_test_above_test_closeup_below",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
+      "history": {
+        "label": "首次训练历史（253个收盘）",
+        "count": 253,
+        "start": "2025-02-27",
+        "end": "2026-03-13"
+      },
+      "test": {
+        "count": 125,
+        "start": "2026-03-16",
+        "end": "2026-09-11"
+      },
+      "rmse_points": {
+        "predicted_close": 41.68101563897596,
+        "previous_close": 41.42015978996017
+      }
+    },
+    "lstm.png": {
+      "sha256": "7a9f4e9f042fcecabb3fb880f03414aa780aa9bf35f26c0b3a85ea321ca6c43d",
+      "inches": [
+        6.7,
+        3.5
+      ],
+      "pixels": [
+        1474,
+        770
+      ],
+      "dpi": 220,
+      "layout": "history_and_test_above_test_closeup_below",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
+      "history": {
+        "label": "LSTM首次训练历史",
+        "count": 483,
+        "start": "2024-06-17",
+        "end": "2026-06-12"
+      },
+      "test": {
+        "count": 64,
+        "start": "2026-06-15",
+        "end": "2026-09-11"
+      },
+      "rmse_points": {
+        "lstm_close": 55.0818371608318,
+        "previous_close": 42.31115942025027
+      }
+    },
+    "patchtst.png": {
+      "sha256": "7b27d582dda4c19186471c21df8d0932d7ca26926ef26714f7aeb5c84c046ecb",
+      "inches": [
+        6.7,
+        3.5
+      ],
+      "pixels": [
+        1474,
+        770
+      ],
+      "dpi": 220,
+      "layout": "history_and_test_above_test_closeup_below",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
+      "history": {
+        "label": "首次训练历史",
+        "count": 483,
+        "start": "2024-06-17",
+        "end": "2026-06-12"
+      },
+      "test": {
+        "count": 64,
+        "start": "2026-06-15",
+        "end": "2026-09-11"
+      },
+      "rmse_points": {
+        "patchtst_close": 44.936181289184546,
+        "lstm_close": 56.276541425152345,
+        "previous_close": 42.31115942025027
+      }
+    },
+    "timesfm.png": {
+      "sha256": "f585b29d57f8eff9050cb07960ea4a2daca477609f09b6d85061321ae9b9032c",
+      "inches": [
+        6.7,
+        3.5
+      ],
+      "pixels": [
+        1474,
+        770
+      ],
+      "dpi": 220,
+      "layout": "history_and_test_above_test_closeup_below",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
+      "history": {
+        "label": "历史参照（非TimesFM本地训练）",
+        "count": 483,
+        "start": "2024-06-17",
+        "end": "2026-06-12"
+      },
+      "test": {
+        "count": 64,
+        "start": "2026-06-15",
+        "end": "2026-09-11"
+      },
+      "rmse_points": {
+        "timesfm_close": 47.039808565936916,
+        "lstm_close": 55.0818371608318,
+        "previous_close": 42.31115942025027
+      }
+    },
+    "arima_returns.png": {
+      "sha256": "2157f83aeec3d88e3293117e7861fa72cacf8efac9b893da9f339efa2df84383",
+      "inches": [
+        6.7,
+        3.6
+      ],
+      "pixels": [
+        1474,
+        792
+      ],
+      "dpi": 220
+    }
+  },
+  "code_sha256": {
+    "scripts/render_report_figures.py": "6e92fe6f67d736a87a748a0b5ccdd4980cc4db061e7bcad0fb04e7f6d91bc690",
+    "forecast_plotting.py": "f8906cdf090d2717050a9efe6d05e42e44e1458842373a36385a30ce9336c833"
+  }
+}

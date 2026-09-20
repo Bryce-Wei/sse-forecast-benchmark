@@ -1,23 +1,28 @@
 """Score every saved next-day prediction against the matching held-out actual."""
 from __future__ import annotations
+import argparse
 import hashlib
 import json
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from common import ROOT, OUT, BASE, RAW_HASH, PROTOCOL, DIGEST, HISTORY, EPOCHS, frame, read, dump, metric
+from common import ROOT, OUT, BASE, RAW_HASH, PROTOCOL, DIGEST, HISTORY, EPOCHS, frame, read, dump, metric, LSTM_OUT, LSTM_DIGEST, load_lstm_records
 
 
-def main():
+def main(language='zh'):
     f = frame()
     review = f.loc['2026-06-15':]
     assert len(review) == 64 and HISTORY == 32
     records = {}
     for name in ['timesfm', 'lstm']:
-        files = sorted((OUT / 'per_day' / name).glob('*.json'))
-        rows = [read(path) for path in files]
+        if name == 'lstm':
+            rows = load_lstm_records()
+        else:
+            files = sorted((OUT / 'per_day' / name).glob('*.json'))
+            rows = [read(path) for path in files]
         assert [r['date'] for r in rows] == review.index.strftime('%Y-%m-%d').tolist()
-        assert all(r['protocol_digest'] == DIGEST and 'actual_close' not in r for r in rows)
+        expected_digest = LSTM_DIGEST if name == 'lstm' else DIGEST
+        assert all(r['protocol_digest'] == expected_digest and 'actual_close' not in r for r in rows)
         records[name] = rows
     joined = []
     for i, day in enumerate(review.index):
@@ -48,7 +53,8 @@ def main():
     assert runtime['all_parameters_frozen'] and runtime['state_hash_before'] == runtime['state_hash_after']
     provenance = read(ROOT / 'checkpoint_provenance.json')
     epochs = [r['selected_epoch'] for r in records['lstm']]
-    reloads = {name: read(OUT / f'reload_{name}.json') for name in ['timesfm', 'lstm']}
+    reloads = {'timesfm': read(OUT / 'reload_timesfm.json'),
+               'lstm': read(LSTM_OUT / 'reload_lstm.json')}
     assert all(len(v) == 3 and all(r['passed'] for r in v) for v in reloads.values())
     data = {'symbol': '000001.SS', 'review_start': joined[0]['date'], 'review_end': joined[-1]['date'],
             'review_count': len(joined), 'initial_train_start': joined[0]['train_start'],
@@ -60,7 +66,7 @@ def main():
               'model_last_modified': provenance['last_modified']}
     metrics = {'data': data, 'overall': overall, 'monthly': monthly, 'direction_accuracy': directions,
                'actual_up_days': int((df.actual_close > df.previous_close).sum()),
-               'return_errors': return_errors, 'source': source, 'protocol': PROTOCOL,
+               'return_errors': return_errors, 'source': source, 'protocol': PROTOCOL, 'shared_lstm': {'output': LSTM_OUT.relative_to(BASE).as_posix(), 'protocol_digest': LSTM_DIGEST},
                'reload_checks': reloads,
                'models': {'timesfm': runtime,
                           'lstm': {'parameters': records['lstm'][0]['parameter_count'],
@@ -78,8 +84,10 @@ def main():
     print(json.dumps({'complete': True, 'count': len(joined), 'overall': overall, 'direction_accuracy': directions,
                       'lstm_epochs_at_cap': metrics['models']['lstm']['epochs_at_cap']}, indent=2))
     from render_comparison import main as render
-    render()
+    render(language=language)
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--language', choices=['zh', 'en'], default='zh')
+    main(**vars(parser.parse_args()))

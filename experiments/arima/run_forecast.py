@@ -66,55 +66,16 @@ def prepare_data():
     return prices, returns, train, test, data_fingerprint()
 
 
-def plot_outputs(prices, returns, train, test, result, report):
-    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.edgecolor':'#bfbfbf','axes.linewidth':0.8,'grid.color':'#c8c8c8','grid.linewidth':0.7,'savefig.facecolor':'white'})
-    start_test=test.index[0]
-    divider=train.index[-1]+(start_test-train.index[-1])/2
-    fig,ax=plt.subplots(figsize=(14,7.5))
-    fig.subplots_adjust(left=0.075,right=0.985,bottom=0.13,top=0.87)
-    ax.plot(train.index,train.values,color='blue',linewidth=0.8,label='Training Data',zorder=2)
-    ax.plot(test.index,test.values,color='red',linewidth=0.85,label='Test Data',zorder=3)
-    ax.plot(result.index,result['predicted_log_return'],color='#00aa00',linewidth=1.25,label='Predicted Data',zorder=4)
-    ax.axvline(divider,color='gray',linestyle='--',linewidth=1.2)
-    ax.set(xlabel='Date',ylabel='Daily log return')
-    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=6))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
-    ax.grid(True)
-    ax.legend(loc='upper left',framealpha=1)
-    fig.suptitle('ARIMA Predictions — SSE Composite (000001.SS)',y=0.965,fontsize=15)
-    fig.text(0.5,0.925,f'Training: {train.index[0]:%Y-%m-%d} to {train.index[-1]:%Y-%m-%d}   |   Test: {test.index[0]:%Y-%m-%d} to {test.index[-1]:%Y-%m-%d}',ha='center',fontsize=10,color='#444444')
-    fig.text(0.5,0.025,'ARIMA(5,1,0) | Expanding-window, one-trading-day-ahead forecasts | Green line exists only in the test period | Source: Yahoo Finance',ha='center',fontsize=9,color='#555555')
-    fig.savefig(OUT/'sse_arima_returns.png',dpi=180)
-    plt.close(fig)
-
-    fig,axes=plt.subplots(2,1,figsize=(14,9),sharex=True,gridspec_kw={'height_ratios':[2.3,1]})
-    fig.subplots_adjust(left=0.085,right=0.985,bottom=0.13,top=0.91,hspace=0.10)
-    ax=axes[0]
-    training_tail=prices.loc[prices.index<TEST_CUTOFF].tail(40)
-    ax.plot(training_tail.index,training_tail.values,color='blue',linewidth=1.2,label='Training Data (last 40 sessions)')
-    ax.plot(test.index,result['actual_close'],color='red',linewidth=1.3,label='Test Data',zorder=3)
-    ax.plot(test.index,result['predicted_close'],color='#00aa00',linewidth=1.25,label='Predicted Data',zorder=4)
-    ax.axvline(divider,color='gray',linestyle='--',linewidth=1.2)
-    ax.set(title='SSE Composite — Rolling One-Day Index Forecasts',ylabel='Index points')
-    ax.legend(loc='upper left',framealpha=0.95)
-    ax.grid(True)
-    err=axes[1]
-    err.axhline(0,color='#555555',linewidth=0.8)
-    err.plot(test.index,result['predicted_close']-result['actual_close'],color='#00aa00',linewidth=1,label='ARIMA error')
-    err.plot(test.index,result['previous_close']-result['actual_close'],color='#888888',linewidth=0.8,alpha=0.85,label='Unchanged-price baseline error')
-    err.axvline(divider,color='gray',linestyle='--',linewidth=1.2)
-    err.set(ylabel='Forecast minus actual\n(index points)',xlabel='Date')
-    err.grid(True)
-    err.legend(loc='upper left',fontsize=9)
-    err.xaxis.set_major_locator(mdates.MonthLocator())
-    err.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
-    fig.text(0.5,0.038,'Each prediction starts from the previous session\'s OBSERVED close; this is not a six-month forecast made at one date.',ha='center',fontsize=10,color='#444444')
-    fig.text(0.5,0.016,f'Test RMSE: ARIMA {report["index_points"]["arima"]["rmse"]:.2f} points | Unchanged-price baseline {report["index_points"]["unchanged_price"]["rmse"]:.2f} points | Source: Yahoo Finance',ha='center',fontsize=9,color='#555555')
-    fig.savefig(OUT/'sse_arima_index_points.png',dpi=180)
-    plt.close(fig)
+def plot_outputs(prices, returns, train, test, result, report, language='en'):
+    from plotting import render
+    records = result.reset_index().to_dict('records')
+    for row in records:
+        row['date'] = pd.Timestamp(row['date']).strftime('%Y-%m-%d')
+    render(prices, train, records, OUT/'sse_arima_index_points.png',
+           OUT/'sse_arima_returns.png', 'ARIMA(5,1,0)', language)
 
 
-def main(smoke=False):
+def main(smoke=False, language='en'):
     OUT.mkdir(parents=True, exist_ok=True)
     prices,returns,train,test,digest=prepare_data()
     if smoke:
@@ -162,12 +123,13 @@ def main(smoke=False):
     (OUT/'metrics.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
     result.reset_index().to_json(OUT/'predictions.json',orient='records',date_format='iso',indent=2)
     prices.rename_axis('date').reset_index().to_json(OUT/'historical_closes.json',orient='records',date_format='iso',indent=2)
-    plot_outputs(prices,returns,train,test,result,report)
+    plot_outputs(prices,returns,train,test,result,report,language)
     print(json.dumps(report,ensure_ascii=False,indent=2),flush=True)
 
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--language', choices=['zh','en'], default='en')
     mode=parser.add_mutually_exclusive_group()
     mode.add_argument('--smoke',action='store_true',help='Fit only the first two review dates; write separate smoke outputs.')
     mode.add_argument('--plot-only',action='store_true',help='Render existing full-run predictions without fitting.')
@@ -178,7 +140,7 @@ if __name__=='__main__':
         prices,returns,train,test,_=prepare_data()
         result=pd.read_json(OUT/'predictions.json',orient='records',convert_dates=['date','trained_through']).set_index('date')
         report=json.loads((OUT/'metrics.json').read_text(encoding='utf-8'))
-        plot_outputs(prices,returns,train,test,result,report)
+        plot_outputs(prices,returns,train,test,result,report,args.language)
         print('Re-rendered both plots from saved forecasts; no refitting.')
     else:
-        main(smoke=args.smoke)
+        main(smoke=args.smoke, language=args.language)

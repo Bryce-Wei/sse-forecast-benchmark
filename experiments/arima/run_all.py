@@ -9,16 +9,17 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--smoke',action='store_true',help='Check two original fits and one validation fit per configuration only.')
     parser.add_argument('--workers',type=int,default=3,help='Parallel processes for the full comparison.')
+    parser.add_argument('--language',choices=['zh','en'],default='en',help='Figure labels.')
     args=parser.parse_args()
     if args.workers<1:
         parser.error('--workers must be at least 1')
     folder=Path(__file__).resolve().parent
-    commands=[['run_forecast.py'],['compare_models.py','--workers',str(args.workers)]]
+    commands=[['run_forecast.py','--language',args.language],['compare_models.py','--workers',str(args.workers)]]
     if args.smoke:
         for command in commands:
             command.append('--smoke')
     else:
-        commands.append(['render_comparison.py'])
+        commands.append(['render_comparison.py','--language',args.language])
     for filename,*arguments in commands:
         subprocess.run([sys.executable,str(folder/filename),*arguments],check=True)
     print('ARIMA smoke checks passed; this does not reproduce full performance metrics.' if args.smoke else 'ARIMA full comparison completed.')

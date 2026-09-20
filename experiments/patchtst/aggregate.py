@@ -1,4 +1,5 @@
 """Join actual closes only after both sets of saved forecasts are complete."""
+import argparse
 import hashlib
 import importlib.metadata
 import json
@@ -6,16 +7,20 @@ import math
 from pathlib import Path
 import numpy as np
 import pandas as pd
-from common import ROOT, OUT, BASE, RAW_HASH, PROTOCOL, DIGEST, HISTORY, EPOCHS, BATCH, VALID, frame, read, dump, metric
+from common import ROOT, OUT, BASE, RAW_HASH, PROTOCOL, DIGEST, HISTORY, EPOCHS, BATCH, VALID, frame, read, dump, metric, LSTM_OUT, LSTM_DIGEST, load_lstm_records
 
 
-def main():
+def main(language='zh'):
     f = frame(); review = f.loc['2026-06-15':]
     records = {}
     for model in ['patchtst', 'lstm']:
-        paths = sorted((OUT/'per_day'/model).glob('*.json'))
-        assert len(paths) == len(review) == 64, f'{model} is not complete'
-        rows = [read(p) for p in paths]
+        model_out = LSTM_OUT if model == 'lstm' else OUT
+        if model == 'lstm':
+            rows = load_lstm_records()
+        else:
+            paths = sorted((OUT/'per_day'/model).glob('*.json'))
+            rows = [read(p) for p in paths]
+        assert len(rows) == len(review) == 64, f'{model} is not complete'
         assert [r['date'] for r in rows] == [str(d.date()) for d in review.index]
         assert len({r['initial_weights_hash'] for r in rows}) == 1
         assert all(r['initial_weights_hash'] == r['refit_initial_weights_hash'] for r in rows)
@@ -23,7 +28,8 @@ def main():
             target = pd.Timestamp(r['date']); lower = target-pd.DateOffset(years=2)
             historical = f.loc[(f.index >= lower) & (f.index < target)]
             dates = [str(d.date()) for d in historical.index]
-            assert r['protocol_digest'] == DIGEST and r['training_dates'] == dates
+            expected_digest = LSTM_DIGEST if model == 'lstm' else DIGEST
+            assert r['protocol_digest'] == expected_digest and r['training_dates'] == dates
             assert r['training_target_dates'] == dates[20:] and r['prediction_input_dates'] == dates[-20:]
             assert r['validation_target_dates'] == dates[-40:]
             assert r['validation_train_end'] == dates[-41]
@@ -44,7 +50,7 @@ def main():
             else:
                 assert r['selection_optimizer_initial_iterations'] == r['refit_optimizer_initial_iterations'] == 0
                 assert r['selection_optimizer_final_iterations'] == expected_select and r['refit_optimizer_final_iterations'] == expected_final
-            assert (OUT / r['model_file']).is_file() and 'actual_close' not in r
+            assert (model_out / r['model_file']).is_file() and 'actual_close' not in r
         records[model] = rows
     joined = []
     for i, day in enumerate(review.index):
@@ -64,7 +70,8 @@ def main():
         monthly.append({'month':month,'count':len(part),**{name:metric(part.actual_close,part[col]) for name,col in names.items()}})
     installation = read(ROOT/'installation.json')
     smoke = read(OUT/'installation_smoke.json')
-    checks = {name:read(OUT/f'reload_{name}.json') for name in ['patchtst','lstm']}
+    checks = {'patchtst': read(OUT / 'reload_patchtst.json'),
+              'lstm': read(LSTM_OUT / 'reload_lstm.json')}
     assert all(len(rows)==3 and all(r['passed'] for r in rows) for rows in checks.values())
     model_details = {}
     for name, rows in records.items():
@@ -80,7 +87,7 @@ def main():
     results = {'data':{'symbol':'000001.SS','review_start':joined[0]['date'],'review_end':joined[-1]['date'],
         'review_count':len(joined),'initial_train_start':joined[0]['train_start'],'initial_train_end':joined[0]['train_end'],
         'last_train_start':joined[-1]['train_start'],'last_train_end':joined[-1]['train_end']},
-        'protocol':PROTOCOL,'overall':overall,'monthly':monthly,'return_errors':returns,'direction_accuracy':directions,
+        'protocol':PROTOCOL, 'shared_lstm': {'output': LSTM_OUT.relative_to(BASE).as_posix(), 'protocol_digest': LSTM_DIGEST},'overall':overall,'monthly':monthly,'return_errors':returns,'direction_accuracy':directions,
         'actual_up_days':int(np.sum(df.actual_close>df.previous_close)),
         'training_observations':{'min':int(df.train_observations.min()),'max':int(df.train_observations.max())},
         'training_windows':{'min':int(df.train_windows.min()),'max':int(df.train_windows.max())},
@@ -94,8 +101,10 @@ def main():
     dump(OUT/'observations.json',[{'date':str(d.date()),'close':float(r.close)} for d,r in display.iterrows()])
     print(json.dumps({'complete':True,'overall':overall,'directions':directions,'models':{k:{x:v[x] for x in ['parameters','epochs_min','epochs_max','epochs_median']} for k,v in model_details.items()}},indent=2))
     from render_comparison import main as render
-    render()
+    render(language=language)
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--language', choices=['zh', 'en'], default='zh')
+    main(**vars(parser.parse_args()))

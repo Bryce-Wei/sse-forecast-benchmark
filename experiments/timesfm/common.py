@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent
 BASE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(BASE))
 from benchmark_support import load_prices, data_fingerprint
+from experiments.lstm.protocol import output_dir as lstm_output_dir, make_protocol as lstm_protocol, digest as lstm_digest, load_records as read_shared_lstm
 OUT = BASE / 'runs' / 'timesfm'
 RAW = BASE / 'data' / 'yahoo_sse.json'
 RAW_HASH = 'aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc'
@@ -31,6 +32,15 @@ PROTOCOL = {
     'historical_note': 'These64 dates were already examined in earlier experiments; retrospective review, not untouched final test.'
 }
 DIGEST = hashlib.sha256(json.dumps(PROTOCOL, sort_keys=True).encode()).hexdigest()
+LSTM_OUT = lstm_output_dir(HISTORY)
+LSTM_PROTOCOL = lstm_protocol(HISTORY)
+LSTM_DIGEST = lstm_digest(LSTM_PROTOCOL)
+
+
+def load_lstm_records(require_complete=True, dates=None):
+    return read_shared_lstm(HISTORY, require_complete=require_complete,
+                            expected_fingerprint=PROTOCOL['data_fingerprint'], dates=dates)
+
 
 
 def dump(path, data):
@@ -46,73 +56,6 @@ def frame():
     f = load_prices().loc[:'2026-09-11']
     assert len(f.loc['2026-06-15':]) == 64
     return f
-
-
-def get_jobs(model, limit=None):
-    f = frame()
-    OUT.mkdir(parents=True, exist_ok=True)
-    path = OUT / 'protocol.json'
-    if path.exists():
-        assert read(path) == PROTOCOL
-    else:
-        dump(path, PROTOCOL)
-    jobs = []
-    targets = f.loc['2026-06-15':].index
-    if limit is not None:
-        if limit < 1:
-            raise ValueError('--limit must be positive')
-        targets = targets[:limit]
-    for target in targets:
-        lower = target - pd.DateOffset(years=YEARS)
-        history = f.loc[(f.index >= lower) & (f.index < target)]
-        assert f.index.min() < lower
-        key = str(target.date())
-        job = {'date': key, 'lower': str(lower.date()), 'dates': [str(x.date()) for x in history.index],
-               'values': history.close.to_list(), 'protocol_digest': DIGEST, 'model': model}
-        saved = OUT / 'per_day' / model / f'{key}.json'
-        if saved.exists():
-            r = read(saved)
-            assert r['protocol_digest'] == DIGEST and r['training_dates'] == job['dates']
-            assert (OUT / r['model_file']).is_file()
-        else:
-            jobs.append(job)
-    return jobs
-
-
-def arrays(job):
-    dates = pd.to_datetime(job['dates'])
-    target = pd.Timestamp(job['date'])
-    lower = target - pd.DateOffset(years=YEARS)
-    assert job['protocol_digest'] == DIGEST and str(lower.date()) == job['lower']
-    assert dates.min() >= lower and dates.max() < target and dates.is_unique
-    values = np.asarray(job['values'], dtype=float)
-    n = len(values)
-    cutoff = n - VALID
-    assert cutoff > HISTORY and len(dates) == n
-    out = {'values': values, 'dates': dates, 'cutoff': cutoff}
-    for name, fit_end in [('validation', cutoff), ('final', n)]:
-        mu = float(values[:fit_end].mean())
-        sd = float(values[:fit_end].std(ddof=0))
-        assert sd > 0
-        z = ((values - mu) / sd).astype('float32')
-        x = np.stack([z[i-HISTORY:i, None] for i in range(HISTORY, n)])
-        y = z[HISTORY:, None]
-        out[name] = {'x': x, 'y': y, 'mean': mu, 'std': sd,
-                     'next_x': z[-HISTORY:][None, :, None], 'scaler_fit_rows': fit_end}
-    out['validation_train_count'] = cutoff - HISTORY
-    return out
-
-
-def audit_fields(job, a):
-    n = len(job['dates']); cut = a['cutoff']
-    return {'date': job['date'], 'model': job['model'], 'protocol_digest': DIGEST,
-            'train_lower_bound': job['lower'], 'train_start': job['dates'][0], 'train_end': job['dates'][-1],
-            'train_observations': n, 'train_windows': n-HISTORY, 'training_dates': job['dates'],
-            'training_target_dates': job['dates'][HISTORY:], 'prediction_input_dates': job['dates'][-HISTORY:],
-            'validation_train_end': job['dates'][cut-1], 'validation_target_dates': job['dates'][cut:],
-            'validation_train_windows': cut-HISTORY, 'previous_close': float(a['values'][-1]),
-            'scalers': {stage: {k: a[stage][k] for k in ['mean', 'std', 'scaler_fit_rows']}
-                       for stage in ['validation', 'final']}}
 
 
 def metric(actual, pred):

@@ -1,0 +1,81 @@
+{
+  "provenance": "Exact LSTM-column extraction from the archived paired experiment; no new training.",
+  "source": "results/reference/patchtst/predictions.json",
+  "source_sha256": "78cd3fb61714a85d1dd0731b66dc53735943172a578332362cfa3f509959455b",
+  "data": {
+    "symbol": "000001.SS",
+    "review_start": "2026-06-15",
+    "review_end": "2026-09-11",
+    "review_count": 64,
+    "initial_train_start": "2024-06-17",
+    "initial_train_end": "2026-06-12",
+    "last_train_start": "2024-09-11",
+    "last_train_end": "2026-09-10"
+  },
+  "protocol": {
+    "history": 20,
+    "train_years": 2,
+    "horizon": 1,
+    "review_count": 64
+  },
+  "overall": {
+    "lstm": {
+      "rmse": 56.276541425152345,
+      "mae": 46.51201940450143
+    },
+    "baseline": {
+      "rmse": 42.31115942025027,
+      "mae": 32.257781982421875
+    }
+  },
+  "monthly": [
+    {
+      "month": "2026-06",
+      "count": 11,
+      "lstm": {
+        "rmse": 73.42472177584645,
+        "mae": 58.83455101117406
+      },
+      "baseline": {
+        "rmse": 47.36153948620668,
+        "mae": 36.99624911221591
+      }
+    },
+    {
+      "month": "2026-07",
+      "count": 23,
+      "lstm": {
+        "rmse": 58.796970692213975,
+        "mae": 48.06535170024023
+      },
+      "baseline": {
+        "rmse": 51.39597314051331,
+        "mae": 41.93795643682065
+      }
+    },
+    {
+      "month": "2026-08",
+      "count": 21,
+      "lstm": {
+        "rmse": 49.45602945023098,
+        "mae": 44.74766789643785
+      },
+      "baseline": {
+        "rmse": 34.40233673447262,
+        "mae": 26.218726748511905
+      }
+    },
+    {
+      "month": "2026-09",
+      "count": 9,
+      "lstm": {
+        "rmse": 37.2845716248942,
+        "mae": 31.598340648272977
+      },
+      "baseline": {
+        "rmse": 21.835812562885724,
+        "mae": 15.819227430555555
+      }
+    }
+  ]
+}

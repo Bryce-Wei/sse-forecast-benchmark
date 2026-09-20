@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parent
 BASE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(BASE))
 from benchmark_support import load_prices, data_fingerprint
+from experiments.lstm.protocol import output_dir as lstm_output_dir, make_protocol as lstm_protocol, digest as lstm_digest, load_records as read_shared_lstm
 OUT = BASE / 'runs' / 'patchtst'
 RAW = BASE / 'data' / 'yahoo_sse.json'
 RAW_HASH = 'aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc'
@@ -31,6 +32,15 @@ PROTOCOL = {
     'historical_note': 'These64 dates were already examined in earlier experiments; retrospective review, not untouched final test.'
 }
 DIGEST = hashlib.sha256(json.dumps(PROTOCOL, sort_keys=True).encode()).hexdigest()
+LSTM_OUT = lstm_output_dir(HISTORY)
+LSTM_PROTOCOL = lstm_protocol(HISTORY)
+LSTM_DIGEST = lstm_digest(LSTM_PROTOCOL)
+
+
+def load_lstm_records(require_complete=True, dates=None):
+    return read_shared_lstm(HISTORY, require_complete=require_complete,
+                            expected_fingerprint=PROTOCOL['data_fingerprint'], dates=dates)
+
 
 
 def dump(path, data):
@@ -49,6 +59,8 @@ def frame():
 
 
 def get_jobs(model, limit=None):
+    if model != 'patchtst':
+        raise ValueError('LSTM training is provided by experiments/lstm/run_all.py')
     f = frame()
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / 'protocol.json'

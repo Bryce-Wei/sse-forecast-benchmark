@@ -1,4 +1,5 @@
 """Render local full-run ARIMA results; no fitting or model selection."""
+import argparse
 import json
 
 import matplotlib
@@ -11,7 +12,7 @@ import pandas as pd
 from compare_models import OUT, load_data, config_label
 
 
-def main():
+def main(language='en'):
     result=json.loads((OUT/'comparison_results.json').read_text(encoding='utf-8'))
     selected=json.loads((OUT/'selected_predictions.json').read_text(encoding='utf-8'))
     pred=pd.DataFrame(selected['rows'])
@@ -25,46 +26,15 @@ def main():
     train=returns.loc[returns.index<pred.index[0]]
     if config['window'] is not None:
         train=train.tail(config['window'])
-    split=train.index[-1]+(pred.index[0]-train.index[-1])/2
     dates=f'{pred.index[0]:%Y-%m-%d} to {pred.index[-1]:%Y-%m-%d}'
-    # English figure text plus Matplotlib's bundled font make rendering portable.
-    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.edgecolor':'#bfbfbf','axes.linewidth':0.8,'grid.color':'#dddddd','grid.linewidth':0.7,'savefig.facecolor':'white'})
-
-    fig,ax=plt.subplots(figsize=(12,6.5))
-    fig.subplots_adjust(left=.085,right=.98,bottom=.15,top=.85)
-    ax.plot(train.index,train.values,color='#2c75c9',lw=.85,label=f'Initial training returns ({len(train)} sessions)')
-    ax.plot(pred.index,pred.actual_log_return,color='#d84646',lw=.9,label='Observed test returns')
-    ax.plot(pred.index,pred.predicted_log_return,color='#139267',lw=1.4,label='Rolling next-day forecast')
-    ax.axvline(split,color='gray',linestyle='--',lw=1.2)
-    ax.set(xlabel='Date',ylabel='Daily log return')
-    ax.xaxis.set_major_locator(mdates.MonthLocator(interval=3))
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
-    ax.grid(True)
-    ax.legend(loc='upper left')
-    fig.suptitle('SSE Composite: ARIMA return predictions',fontsize=16,y=.96)
-    fig.text(.5,.90,f'Validation-selected model: {label}',ha='center',fontsize=11)
-    fig.text(.5,.055,f'Historical review: {dates} | {len(pred)} next-day forecasts | Yahoo Finance',ha='center',fontsize=9)
-    fig.savefig(OUT/'sse_arima_improved_returns.png',dpi=180)
-    plt.close(fig)
-
-    fig,ax=plt.subplots(figsize=(12,6.5))
-    fig.subplots_adjust(left=.085,right=.98,bottom=.16,top=.86)
-    prior=prices.loc[prices.index<pred.index[0]].tail(40)
-    ax.plot(prior.index,prior.values,color='#2c75c9',lw=1.2,label='Earlier observed closes (last 40 sessions)')
-    ax.plot(pred.index,pred.previous_close,color='#888888',lw=1,ls='--',label='Previous-close baseline')
-    ax.plot(pred.index,pred.actual_close,color='#d84646',lw=1.2,label='Observed test closes')
-    ax.plot(pred.index,pred.predicted_close,color='#139267',lw=1.2,label='Rolling next-day forecast')
-    ax.axvline(split,color='gray',ls='--',lw=1.2)
-    ax.set(xlabel='Date',ylabel='Index points')
-    ax.xaxis.set_major_locator(mdates.MonthLocator())
-    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
-    ax.legend(loc='upper left',fontsize=9)
-    ax.grid(True)
-    fig.suptitle('SSE Composite: selected ARIMA vs observed index',fontsize=16,y=.96)
-    fig.text(.5,.045,'Each forecast starts from the previous observed close; this is not a six-month path forecast.',ha='center',fontsize=9)
-    fig.text(.5,.075,f'Point RMSE: selected {result["review_selected"]["point_rmse"]:.2f} | previous-close baseline {result["review_baseline"]["point_rmse"]:.2f}',ha='center',fontsize=10)
-    fig.savefig(OUT/'sse_arima_improved_points.png',dpi=180)
-    plt.close(fig)
+    from plotting import render
+    render(prices, train, selected['rows'], OUT/'sse_arima_improved_points.png',
+           OUT/'sse_arima_improved_returns.png', label, language)
+    # Error bars are a metric comparison, distinct from the two-panel forecasts.
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,
+                         'axes.edgecolor':'#bfbfbf','axes.linewidth':0.8,
+                         'grid.color':'#dddddd','grid.linewidth':0.7,
+                         'savefig.facecolor':'white'})
 
     fig,(ax,bx)=plt.subplots(1,2,figsize=(12,5.8),gridspec_kw={'width_ratios':[1,2]})
     fig.subplots_adjust(left=.08,right=.98,bottom=.19,top=.82,wspace=.26)
@@ -126,4 +96,6 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--language', choices=['zh','en'], default='en')
+    main(parser.parse_args().language)

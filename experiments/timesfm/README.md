@@ -8,6 +8,8 @@ python experiments/timesfm/download_model.py
 python experiments/timesfm/run_timesfm.py --smoke
 python experiments/timesfm/run_all.py --limit 1
 python experiments/timesfm/run_all.py
+# Optional English labels
+python experiments/timesfm/run_all.py --language en
 ```
 
 The downloader fetches Google's official `google/timesfm-2.5-200m-pytorch`
@@ -23,6 +25,14 @@ fresh copy of the model. `--limit 1` runs only the first date; the LSTM still
 uses its full 40-epoch selection protocol. `--inputs-only` validates past-only
 TimesFM inputs without loading the checkpoint. Full aggregation requires all
 64 dates and writes `runs/timesfm/{metrics.json,predictions.json,comparison.png}`.
+
+The paired workflow directly calls the independent
+[`experiments/lstm/run_all.py`](../lstm/run_all.py) with `--history 32`.
+The single shared training implementation writes to `runs/lstm/history_32/`;
+aggregation verifies those records by date, input length, data fingerprint,
+and training protocol. Old `runs/timesfm/per_day/lstm/` files are no longer
+read. `run_lstm.py` remains only as a compatibility wrapper. The independent
+and paired workflows therefore reuse the same completed LSTM days.
 
 The review covers 2026-06-15 through 2026-09-11. Both models receive the same
 32 real daily closes and predict one next trading observation. TimesFM uses
@@ -43,6 +53,10 @@ whereas LSTM trains locally. The fixed checkpoint was public before these
 pretraining. Review dates were examined in prior experiments and are not an
 untouched final test. The left plot is LSTM historical data, not a depiction
 of TimesFM's external training corpus.
+
+Plots share the repository layout: actual history on the left, actual and
+predicted test values on the right, plus a test-period zoom. Labels support
+Chinese and English through `--language`.
 
 `checkpoint_provenance.json` records the reference checkpoint identity, not
 an assertion that a new installation was audited. Fresh runs hash weights,
