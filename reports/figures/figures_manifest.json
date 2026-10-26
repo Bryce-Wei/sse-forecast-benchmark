@@ -372,7 +372,7 @@
     }
   },
   "code_sha256": {
-    "scripts/render_report_figures.py": "6e92fe6f67d736a87a748a0b5ccdd4980cc4db061e7bcad0fb04e7f6d91bc690",
+    "scripts/render_report_figures.py": "3ffb1c930a334360fe614ad87ac446ff2466949ea2708c021c97883148f2899d",
     "forecast_plotting.py": "f8906cdf090d2717050a9efe6d05e42e44e1458842373a36385a30ce9336c833"
   }
 }

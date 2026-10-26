@@ -1,0 +1,254 @@
+{
+  "method": "Paired circular moving-block bootstrap of the RMSE reduction, reused from experiments/arima/compare_models.py (5000 replications, seed 5545 + block length). Positive values mean the model's RMSE is lower than the reference's.",
+  "scope": "Post-hoc analysis of archived forecasts; conditional on fixed forecasts, not corrected for model search or multiple comparisons.",
+  "arima_archive_reproduced": true,
+  "source_sha256": {
+    "results/reference/arima/comparison_results.json": "f2b124102249c697b5fca73efa111122632af40d1a92332961c4146722fe420c",
+    "results/reference/arima/selected_predictions.json": "970566dbf1a40d3d995976bef04a26a8600781b85ba60d54b9122b19baf32a5d",
+    "results/reference/arima/original_predictions.json": "924190d4e4f09d63844d1cd3f9c4d6b8d68579106107334df9f8c4f8b13e8361",
+    "results/reference/patchtst/predictions.json": "78cd3fb61714a85d1dd0731b66dc53735943172a578332362cfa3f509959455b",
+    "results/reference/timesfm/predictions.json": "3af3c6198a6a4f8474f23adf4a1e81d853cd59e9b781447bbb5f44664c2b1edd"
+  },
+  "comparisons": [
+    {
+      "experiment": "arima",
+      "model": "Selected ARIMA (252-return mean)",
+      "reference": "Original ARIMA(5,1,0)",
+      "n": 125,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": 7.788130205928412,
+          "ci95_percent": [
+            2.129110920669721,
+            13.605875481869742
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": 7.788130205928412,
+          "ci95_percent": [
+            3.1861443181995535,
+            12.103381680090859
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "arima",
+      "model": "Selected ARIMA (252-return mean)",
+      "reference": "Previous-close baseline",
+      "n": 125,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": -0.6297799195816189,
+          "ci95_percent": [
+            -1.4628928566885102,
+            0.40844699331928186
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": -0.6297799195816189,
+          "ci95_percent": [
+            -1.4137606351703706,
+            0.4351601436921798
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "patchtst",
+      "model": "LSTM (20-day input)",
+      "reference": "Previous-close baseline",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": -33.00637986823447,
+          "ci95_percent": [
+            -64.8460010970765,
+            -10.32483693463339
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": -33.00637986823447,
+          "ci95_percent": [
+            -66.81179553211422,
+            -13.100330234095853
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "patchtst",
+      "model": "PatchTST",
+      "reference": "LSTM (20-day input)",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": 20.15113197929984,
+          "ci95_percent": [
+            2.837438392693788,
+            35.75346153910921
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": 20.15113197929984,
+          "ci95_percent": [
+            5.894866839520284,
+            35.49209541286152
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "patchtst",
+      "model": "PatchTST",
+      "reference": "Previous-close baseline",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": -6.204088720097656,
+          "ci95_percent": [
+            -13.816261042470899,
+            0.5494187253181687
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": -6.204088720097656,
+          "ci95_percent": [
+            -13.01817690875491,
+            -0.8290128759108407
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "timesfm",
+      "model": "LSTM (32-day input)",
+      "reference": "Previous-close baseline",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": -30.18276482035953,
+          "ci95_percent": [
+            -49.526359482161624,
+            -14.497600439442882
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": -30.18276482035953,
+          "ci95_percent": [
+            -51.47430753252268,
+            -16.229597952730497
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "timesfm",
+      "model": "TimesFM 2.5",
+      "reference": "LSTM (32-day input)",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": 14.600145909101059,
+          "ci95_percent": [
+            2.9745776149632666,
+            27.956196714493945
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": 14.600145909101059,
+          "ci95_percent": [
+            2.447658645810169,
+            29.62035484356299
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    },
+    {
+      "experiment": "timesfm",
+      "model": "TimesFM 2.5",
+      "reference": "Previous-close baseline",
+      "n": 64,
+      "bootstrap": [
+        {
+          "block_length": 5,
+          "replications": 5000,
+          "seed": 5550,
+          "rmse_reduction_percent": -11.175891208085154,
+          "ci95_percent": [
+            -21.011596247386027,
+            -0.9714127319933425
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        },
+        {
+          "block_length": 10,
+          "replications": 5000,
+          "seed": 5555,
+          "rmse_reduction_percent": -11.175891208085154,
+          "ci95_percent": [
+            -19.406292460570718,
+            -1.7176075455503081
+          ],
+          "method": "Paired circular moving-block bootstrap; conditional on fixed forecasts, not corrected for model search."
+        }
+      ]
+    }
+  ]
+}
