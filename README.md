@@ -1,5 +1,7 @@
 # 上证指数预测实验方法与结论
 
+**简体中文** | [English](README.en.md)
+
 ARIMA · LSTM · PatchTST · TimesFM 2.5
 
 本研究评估 ARIMA、LSTM、PatchTST 与 TimesFM 2.5 对上证指数下一交易日收盘点位的预测能力。核心问题是：在严格限定预测时可用信息的条件下，模型能否相对前日收盘基准提供可重复的预测增益。仓库公开研究方法、实现代码、逐日预测记录及评价结果，以支持独立复核。PatchTST 使用原作者实现，TimesFM 使用 Google Research 官方预训练模型；模型来源及许可见 [第三方声明](THIRD_PARTY_NOTICES.md)。
@@ -292,6 +294,7 @@ python -m unittest experiments.lstm.test_protocol -v
 ```text
 sse-forecast-benchmark/
 ├── README.md                  # 本图文实验报告与运行指南
+├── README.en.md               # 英文版 README
 ├── benchmark_support.py       # 行情校验与数据指纹
 ├── forecast_plotting.py       # 四种方法共用的历史/测试布局
 ├── experiments/
