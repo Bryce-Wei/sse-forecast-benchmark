@@ -1,13 +1,13 @@
 {
   "method": "Saved archived one-step forecasts; no fitting, downloading, imputation, or editing reference results.",
   "layout": "standard",
-  "language": "en",
-  "font_family": "DejaVu Sans",
+  "language": "zh",
+  "font_family": "Microsoft YaHei",
   "minimum_font_points": 9.5,
   "canonical_prices_sha256": "1f008677ebe57c334b3a6b1755e98600185c60cd07404f077cbe6cf77cd7bf0a",
   "source_sha256": {
-    "results/reference/manifest.json": "ed4efe8b68819813ffbf927d7c840cd0d29bb7067243f593bde18e10da3cd209",
-    "data/yahoo_sse.json": "e38b5e60ebfe98f5ce07df108ab439ac94529f0a039d861b7377bb40dbf70e66",
+    "results/reference/manifest.json": "eacd16876d84258324e78c795a9aa65e4d93435f344198ab5795d4a46063ac2c",
+    "data/yahoo_sse.json": "aa52cac6e0320a14f944f976007b886aece26390aff6db388f3e5de7e7ed19dc",
     "results/reference/arima/selected_predictions.json": "970566dbf1a40d3d995976bef04a26a8600781b85ba60d54b9122b19baf32a5d",
     "results/reference/arima/original_predictions.json": "924190d4e4f09d63844d1cd3f9c4d6b8d68579106107334df9f8c4f8b13e8361",
     "results/reference/arima/comparison_results.json": "f2b124102249c697b5fca73efa111122632af40d1a92332961c4146722fe420c",
@@ -213,7 +213,7 @@
   },
   "figures": {
     "overview.png": {
-      "sha256": "8483808f585a887cfc48c30e6d65f49f7a085de356403edc3925763f4be3925d",
+      "sha256": "1d72932249b72b529bf0e9aee6baa3e792fdc633d097bf2ce24b6a084916f713",
       "inches": [
         6.7,
         2.65
@@ -225,7 +225,7 @@
       "dpi": 220
     },
     "monthly.png": {
-      "sha256": "9a104ef2a5dab0768f4cf96c3d718c19c0267d9b0570aa6ef34fdf5b729c26a2",
+      "sha256": "9d630a99f1aa8473744b6f57b6b4a957d9b6fac017a7cf143e7d0a03c37eb0e1",
       "inches": [
         6.7,
         3.1
@@ -237,7 +237,7 @@
       "dpi": 220
     },
     "arima.png": {
-      "sha256": "f1d3b17df15404864429f4d36d935e28b042fe56f26099673e6e69694a98b794",
+      "sha256": "d806bda3ae083dbb102dc364c2e2086f45fdb07a44b929a6a6c52943e9658057",
       "inches": [
         6.7,
         3.5
@@ -248,10 +248,10 @@
       ],
       "dpi": 220,
       "layout": "history_and_test_above_test_closeup_below",
-      "font_family": "DejaVu Sans",
-      "language": "en",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
       "history": {
-        "label": "Initial history (253 closes)",
+        "label": "首次训练历史（253个收盘）",
         "count": 253,
         "start": "2025-02-27",
         "end": "2026-03-13"
@@ -267,7 +267,7 @@
       }
     },
     "lstm.png": {
-      "sha256": "dba9fddfa0f6baf9f68c5a7c9226d5dbe4fdc8a5a1d0800408c78f4d91100ad2",
+      "sha256": "7a9f4e9f042fcecabb3fb880f03414aa780aa9bf35f26c0b3a85ea321ca6c43d",
       "inches": [
         6.7,
         3.5
@@ -278,10 +278,10 @@
       ],
       "dpi": 220,
       "layout": "history_and_test_above_test_closeup_below",
-      "font_family": "DejaVu Sans",
-      "language": "en",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
       "history": {
-        "label": "Initial LSTM training history",
+        "label": "LSTM首次训练历史",
         "count": 483,
         "start": "2024-06-17",
         "end": "2026-06-12"
@@ -297,7 +297,7 @@
       }
     },
     "patchtst.png": {
-      "sha256": "d15f96a21efe5a5402b01b2024d43ba7ac9464a25001002ac57cbb5aa7b51af6",
+      "sha256": "7b27d582dda4c19186471c21df8d0932d7ca26926ef26714f7aeb5c84c046ecb",
       "inches": [
         6.7,
         3.5
@@ -308,10 +308,10 @@
       ],
       "dpi": 220,
       "layout": "history_and_test_above_test_closeup_below",
-      "font_family": "DejaVu Sans",
-      "language": "en",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
       "history": {
-        "label": "Initial training history",
+        "label": "首次训练历史",
         "count": 483,
         "start": "2024-06-17",
         "end": "2026-06-12"
@@ -328,7 +328,7 @@
       }
     },
     "timesfm.png": {
-      "sha256": "062155cb0525286bd1871fb1210396e92fcebada70a3411c93ccc93212b8c9b8",
+      "sha256": "f585b29d57f8eff9050cb07960ea4a2daca477609f09b6d85061321ae9b9032c",
       "inches": [
         6.7,
         3.5
@@ -339,10 +339,10 @@
       ],
       "dpi": 220,
       "layout": "history_and_test_above_test_closeup_below",
-      "font_family": "DejaVu Sans",
-      "language": "en",
+      "font_family": "Microsoft YaHei",
+      "language": "zh",
       "history": {
-        "label": "Reference history (no local TimesFM training)",
+        "label": "历史参照（非TimesFM本地训练）",
         "count": 483,
         "start": "2024-06-17",
         "end": "2026-06-12"
@@ -359,7 +359,7 @@
       }
     },
     "arima_returns.png": {
-      "sha256": "a13999a6c02a7fc3fb23f46113e58f078d82ed2caa3cbc0c9f282f3279cb851d",
+      "sha256": "2157f83aeec3d88e3293117e7861fa72cacf8efac9b893da9f339efa2df84383",
       "inches": [
         6.7,
         3.6
@@ -372,7 +372,7 @@
     }
   },
   "code_sha256": {
-    "scripts/render_report_figures.py": "3ffb1c930a334360fe614ad87ac446ff2466949ea2708c021c97883148f2899d",
+    "scripts/render_report_figures.py": "6e92fe6f67d736a87a748a0b5ccdd4980cc4db061e7bcad0fb04e7f6d91bc690",
     "forecast_plotting.py": "f8906cdf090d2717050a9efe6d05e42e44e1458842373a36385a30ce9336c833"
   }
 }

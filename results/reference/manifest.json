@@ -116,13 +116,13 @@
     }
   ],
   "figures": {
-    "reports/figures/arima.png": "f1d3b17df15404864429f4d36d935e28b042fe56f26099673e6e69694a98b794",
-    "reports/figures/arima_returns.png": "a13999a6c02a7fc3fb23f46113e58f078d82ed2caa3cbc0c9f282f3279cb851d",
-    "reports/figures/lstm.png": "dba9fddfa0f6baf9f68c5a7c9226d5dbe4fdc8a5a1d0800408c78f4d91100ad2",
-    "reports/figures/monthly.png": "9a104ef2a5dab0768f4cf96c3d718c19c0267d9b0570aa6ef34fdf5b729c26a2",
-    "reports/figures/overview.png": "8483808f585a887cfc48c30e6d65f49f7a085de356403edc3925763f4be3925d",
-    "reports/figures/patchtst.png": "d15f96a21efe5a5402b01b2024d43ba7ac9464a25001002ac57cbb5aa7b51af6",
-    "reports/figures/timesfm.png": "062155cb0525286bd1871fb1210396e92fcebada70a3411c93ccc93212b8c9b8"
+    "reports/figures/arima.png": "d806bda3ae083dbb102dc364c2e2086f45fdb07a44b929a6a6c52943e9658057",
+    "reports/figures/arima_returns.png": "2157f83aeec3d88e3293117e7861fa72cacf8efac9b893da9f339efa2df84383",
+    "reports/figures/lstm.png": "7a9f4e9f042fcecabb3fb880f03414aa780aa9bf35f26c0b3a85ea321ca6c43d",
+    "reports/figures/monthly.png": "9d630a99f1aa8473744b6f57b6b4a957d9b6fac017a7cf143e7d0a03c37eb0e1",
+    "reports/figures/overview.png": "1d72932249b72b529bf0e9aee6baa3e792fdc633d097bf2ce24b6a084916f713",
+    "reports/figures/patchtst.png": "7b27d582dda4c19186471c21df8d0932d7ca26926ef26714f7aeb5c84c046ecb",
+    "reports/figures/timesfm.png": "f585b29d57f8eff9050cb07960ea4a2daca477609f09b6d85061321ae9b9032c"
   },
   "report_pdf": {
     "path": "reports/experiment-report.pdf",

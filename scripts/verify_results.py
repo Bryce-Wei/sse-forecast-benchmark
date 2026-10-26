@@ -49,25 +49,32 @@ def check_dates(rows, count, start, end):
 
 
 def check_figures(manifest):
-    """Check generated images and provenance without requiring an installed data cache."""
-    generated = read(REPO / "reports/figures/figures_manifest.json")
-    check(generated["layout"] == "standard")
-    check(generated["canonical_prices_sha256"] == manifest["canonical_prices_sha256"])
-    check(set(generated["figures"]) == {Path(path).name for path in manifest["figures"]})
-    for group in ["source_sha256", "code_sha256"]:
-        for relative, expected in generated[group].items():
-            path = REPO / relative
-            # The historical cache is intentionally not distributed with the repository.
-            if group == "source_sha256" and relative not in {
-                "results/reference/manifest.json", *[e["file"] for e in manifest["reference_files"]]
-            }:
-                continue
-            check(hashlib.sha256(path.read_bytes()).hexdigest() == expected, relative)
+    """Check generated images and provenance without requiring an installed data cache.
+
+    reports/figures holds the published Chinese set; reports/figures/en holds the
+    English set rendered from the same archive for README.en.md.
+    """
     regenerated = 0
-    for relative, published_hash in manifest["figures"].items():
-        actual = hashlib.sha256((REPO / relative).read_bytes()).hexdigest()
-        check(actual == generated["figures"][Path(relative).name]["sha256"], relative)
-        regenerated += actual != published_hash
+    for folder, language in [("reports/figures", "zh"), ("reports/figures/en", "en")]:
+        generated = read(REPO / folder / "figures_manifest.json")
+        check(generated["layout"] == "standard" and generated["language"] == language, folder)
+        check(generated["canonical_prices_sha256"] == manifest["canonical_prices_sha256"])
+        check(set(generated["figures"]) == {Path(path).name for path in manifest["figures"]})
+        for group in ["source_sha256", "code_sha256"]:
+            for relative, expected in generated[group].items():
+                path = REPO / relative
+                # The historical cache is intentionally not distributed with the repository.
+                if group == "source_sha256" and relative not in {
+                    "results/reference/manifest.json", *[e["file"] for e in manifest["reference_files"]]
+                }:
+                    continue
+                check(hashlib.sha256(path.read_bytes()).hexdigest() == expected, relative)
+        for relative, published_hash in manifest["figures"].items():
+            name = Path(relative).name
+            actual = hashlib.sha256((REPO / folder / name).read_bytes()).hexdigest()
+            check(actual == generated["figures"][name]["sha256"], f"{folder}/{name}")
+            # Only the Chinese set has published hashes in the archive manifest.
+            regenerated += language == "zh" and actual != published_hash
     pdf = manifest["report_pdf"]
     check(hashlib.sha256((REPO / pdf["path"]).read_bytes()).hexdigest() == pdf["sha256"])
     return regenerated
@@ -120,7 +127,7 @@ def main():
     print(json.dumps(output, indent=2))
     print(f"PASS: {len(output) * 2} MAE/RMSE values, chronological dates, paired baselines, "
           f"128 matching standalone LSTM records, {len(manifest['reference_files'])} reference files, "
-          f"{len(manifest['figures'])} figures and PDF. Regenerated figures: {regenerated}.")
+          f"{len(manifest['figures'])} figures in Chinese and English, and PDF. Regenerated figures: {regenerated}.")
 
 
 if __name__ == "__main__":

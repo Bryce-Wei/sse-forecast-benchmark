@@ -238,12 +238,13 @@ Yahoo 可能限流或修订历史数据。程序校验行情，并记录规范�
 
 ```bash
 python scripts/render_report_figures.py
+python scripts/render_report_figures.py --language en --output reports/figures/en
 python scripts/render_report_figures.py --layout original --output runs/pdf-original-figures
 ```
 
-第一条生成当前 README 的六幅主图及 ARIMA 收益率诊断图，默认写入 `reports/figures/`。第二条重建原版 PDF 的六幅图及原始布局。每次生成会核对34项 RMSE、真实历史与归档收盘是否一致，并保存图表来源与日期范围清单。
+第一条生成中文 README 的六幅主图及 ARIMA 收益率诊断图，默认写入 `reports/figures/`；第二条生成英文 README 使用的英文版，写入 `reports/figures/en/`。第三条重建原版 PDF 的六幅图及原始布局。每次生成会核对34项 RMSE、真实历史与归档收盘是否一致，并保存图表来源与日期范围清单。
 
-字体不同可能改变图片字节。第一条命令默认使用英文标注，与 README 中的图一致；第二条默认使用中文标注，与原版 PDF 一致。中文图需要 Microsoft YaHei、Noto Sans CJK SC 等字体；两条命令均可用 `--language zh` 或 `--language en` 指定语言。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
+字体不同可能改变图片字节。中文图需要 Microsoft YaHei、Noto Sans CJK SC 等字体；没有中文字体时可加 `--language en`。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
 
 ### 重算显著性检验
 
@@ -338,7 +339,7 @@ sse-forecast-benchmark/
 ├── tests/                     # 数据完整性与绘图时间分界测试
 ├── results/reference/         # 已发表实验记录与校验清单
 ├── results/analysis/          # 基于归档预测的显著性检验结果
-├── reports/                   # 原版 PDF、六幅主图与收益率诊断
+├── reports/                   # 原版 PDF、六幅主图与收益率诊断（英文版位于 figures/en/）
 ├── third_party/PatchTST/      # 原作者源码子集及许可证
 ├── data/                      # 本地行情缓存，不提交原始数据
 └── runs/                      # 本地新运行输出，不提交模型
