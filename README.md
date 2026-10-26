@@ -1,5 +1,7 @@
 # 上证指数预测实验方法与结论
 
+**简体中文** | [English](README.en.md)
+
 ARIMA · LSTM · PatchTST · TimesFM 2.5
 
 本研究评估 ARIMA、LSTM、PatchTST 与 TimesFM 2.5 对上证指数下一交易日收盘点位的预测能力。核心问题是：在严格限定预测时可用信息的条件下，模型能否相对前日收盘基准提供可重复的预测增益。仓库公开研究方法、实现代码、逐日预测记录及评价结果，以支持独立复核。PatchTST 使用原作者实现，TimesFM 使用 Google Research 官方预训练模型；模型来源及许可见 [第三方声明](THIRD_PARTY_NOTICES.md)。
@@ -217,13 +219,13 @@ Yahoo 可能限流或修订历史数据。程序校验行情，并记录规范�
 安装基础依赖并准备好与归档指纹一致的历史行情后，可直接重画；无需 TensorFlow、PyTorch、TimesFM 权重或重新训练：
 
 ```bash
-python scripts/render_report_figures.py
+python scripts/render_report_figures.py --language en
 python scripts/render_report_figures.py --layout original --output runs/pdf-original-figures
 ```
 
 第一条生成当前 README 的六幅主图及 ARIMA 收益率诊断图，默认写入 `reports/figures/`。第二条重建原版 PDF 的六幅图及原始布局。每次生成会核对34项 RMSE、真实历史与归档收盘是否一致，并保存图表来源与日期范围清单。
 
-字体不同可能改变图片字节。中文图需要 Microsoft YaHei、Noto Sans CJK SC 等字体；没有中文字体时可加 `--language en`。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
+字体不同可能改变图片字节。第一条命令使用英文标注（`--language en`），与 README 中的图一致；不加该参数时生成中文图，需要 Microsoft YaHei、Noto Sans CJK SC 等字体。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
 
 ### ARIMA
 
@@ -292,6 +294,7 @@ python -m unittest experiments.lstm.test_protocol -v
 ```text
 sse-forecast-benchmark/
 ├── README.md                  # 本图文实验报告与运行指南
+├── README.en.md               # 英文版 README
 ├── benchmark_support.py       # 行情校验与数据指纹
 ├── forecast_plotting.py       # 四种方法共用的历史/测试布局
 ├── experiments/
