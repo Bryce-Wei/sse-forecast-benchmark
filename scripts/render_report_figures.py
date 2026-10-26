@@ -307,12 +307,13 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--layout", choices=["standard", "original"], default="standard", help="standard: common two-panel model plots; original: six original PDF layouts")
     parser.add_argument("--output", type=Path, help="Output directory; defaults to reports/figures (standard) or runs/pdf-original-figures (original)")
-    parser.add_argument("--language", choices=["zh", "en"], default="zh", help="Chinese requires an installed supported CJK font")
+    parser.add_argument("--language", choices=["zh", "en"], help="Defaults to en (standard, as in the README) or zh (original, as in the PDF); Chinese requires an installed supported CJK font")
     parser.add_argument("--data", type=Path, default=DATA_PATH, help="Existing matching Yahoo JSON; never downloaded by this command")
     args = parser.parse_args()
     output = args.output or REPO / ("reports/figures" if args.layout == "standard" else "runs/pdf-original-figures")
+    language = args.language or ("en" if args.layout == "standard" else "zh")
     try:
-        manifest = ReportFigures(output, args.layout, args.language, args.data).render()
+        manifest = ReportFigures(output, args.layout, language, args.data).render()
     except (ValueError, RuntimeError, FileNotFoundError) as exc:
         parser.exit(2, f"Cannot render report figures: {exc}\n")
     print(f"Rendered {len(manifest['figures'])} figures; {len(manifest['verified_rmse'])} archived RMSE checks passed. Output: {output}")

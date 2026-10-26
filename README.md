@@ -151,6 +151,23 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 
 图6  两组64日实验的按月RMSE。6月与9月仅覆盖部分月份。PatchTST四个区间均未超过基准；TimesFM仅6月略低于基准，其余区间高于基准。
 
+### 误差差异的显著性
+
+下表由 [scripts/significance.py](scripts/significance.py) 基于归档逐日预测离线计算，沿用 ARIMA 实验的配对循环移动区块 bootstrap（5000 次重复，块长 5 和 10）。脚本先完整重现 ARIMA 原实验已归档的区间，再用同一方法计算其余对比。数值为模型相对参照的 RMSE 降幅，正值表示模型误差更低；区间不含 0 表示该块长下差异显著。
+
+| 模型 | 参照 | RMSE 降幅 | 95% 区间（块长 5） | 95% 区间（块长 10） |
+| --- | --- | --- | --- | --- |
+| 选定 ARIMA | 原 ARIMA(5,1,0) | 7.79% | [2.13%, 13.61%] | [3.19%, 12.10%] |
+| 选定 ARIMA | 前日收盘基准 | -0.63% | [-1.46%, 0.41%] | [-1.41%, 0.44%] |
+| LSTM（20日输入） | 前日收盘基准 | -33.01% | [-64.85%, -10.32%] | [-66.81%, -13.10%] |
+| PatchTST | LSTM（20日输入） | 20.15% | [2.84%, 35.75%] | [5.89%, 35.49%] |
+| PatchTST | 前日收盘基准 | -6.20% | [-13.82%, 0.55%] | [-13.02%, -0.83%] |
+| LSTM（32日输入） | 前日收盘基准 | -30.18% | [-49.53%, -14.50%] | [-51.47%, -16.23%] |
+| TimesFM 2.5 | LSTM（32日输入） | 14.60% | [2.97%, 27.96%] | [2.45%, 29.62%] |
+| TimesFM 2.5 | 前日收盘基准 | -11.18% | [-21.01%, -0.97%] | [-19.41%, -1.72%] |
+
+两种块长下区间均不含 0 的有：选定 ARIMA 相对原 ARIMA 的改进，PatchTST 与 TimesFM 2.5 相对对应 LSTM 的改进，以及两组 LSTM 与 TimesFM 2.5 劣于前日收盘基准。选定 ARIMA 与基准的差异在两种块长下均不显著；PatchTST 劣于基准对块长敏感，块长 5 时区间含 0，块长 10 时不含 0。没有任何模型显著优于前日收盘基准。该检验以已固定的预测为条件，未校正模型搜索与多重比较，属于对归档结果的事后分析。
+
 ### 图像贴近与有效预测之间的区别
 
 指数点位带有很强的前日参照，模型跟随最近点位也可能画出看似贴近的曲线。真正需要检验的是相对基准的新增预测信息。曲线形状、误差下降、方向命中和扣除成本后的盈利，是不同层次的证据。当前实验没有验证可盈利的交易策略。
@@ -175,6 +192,7 @@ ARIMA的18个候选只在更早的2025-03-14至2026-03-13验证期选择。后�
 - LSTM 与 PatchTST：[20 日输入配对结果](results/reference/patchtst/)。
 - TimesFM 与 LSTM：[32 日输入配对结果](results/reference/timesfm/)。
 - 独立 LSTM：[20日归档](results/reference/lstm/history_20/)与[32日归档](results/reference/lstm/history_32/)，由对应配对结果逐列提取，数值保持一致。
+- 显著性检验：[基于归档预测的 bootstrap 区间](results/analysis/significance.json)，由 [scripts/significance.py](scripts/significance.py) 生成。
 - [发布归档清单与校验值](results/reference/manifest.json)。
 
 上述图表来自已完成实验的真实预测记录。当前预测图统一为上方“左侧真实历史、右侧测试对比”及下方“测试期放大”。PDF 保留原版报告，其六幅原布局图同样可以通过仓库内代码重建；PDF 中 `sse-*-20260914` 是原实验目录名。归档数据可以离线重新计算误差，重新训练写入 `runs/`。
@@ -219,13 +237,23 @@ Yahoo 可能限流或修订历史数据。程序校验行情，并记录规范�
 安装基础依赖并准备好与归档指纹一致的历史行情后，可直接重画；无需 TensorFlow、PyTorch、TimesFM 权重或重新训练：
 
 ```bash
-python scripts/render_report_figures.py --language en
+python scripts/render_report_figures.py
 python scripts/render_report_figures.py --layout original --output runs/pdf-original-figures
 ```
 
 第一条生成当前 README 的六幅主图及 ARIMA 收益率诊断图，默认写入 `reports/figures/`。第二条重建原版 PDF 的六幅图及原始布局。每次生成会核对34项 RMSE、真实历史与归档收盘是否一致，并保存图表来源与日期范围清单。
 
-字体不同可能改变图片字节。第一条命令使用英文标注（`--language en`），与 README 中的图一致；不加该参数时生成中文图，需要 Microsoft YaHei、Noto Sans CJK SC 等字体。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
+字体不同可能改变图片字节。第一条命令默认使用英文标注，与 README 中的图一致；第二条默认使用中文标注，与原版 PDF 一致。中文图需要 Microsoft YaHei、Noto Sans CJK SC 等字体；两条命令均可用 `--language zh` 或 `--language en` 指定语言。图形布局由[共享绘图模块](forecast_plotting.py)负责，四种方法的实际运行输出也使用它；TimesFM 左侧明确是历史参照，不代表其预训练数据。
+
+### 重算显著性检验
+
+安装基础依赖后即可运行；不需要行情数据或重新训练：
+
+```bash
+python scripts/significance.py
+```
+
+基于归档逐日预测重新计算第六部分的 bootstrap 区间，写入 `results/analysis/significance.json`。脚本先重现 ARIMA 原实验的归档区间，不一致即报错。加 `--check` 只核对已提交的结果，不写文件。
 
 ### ARIMA
 
@@ -291,10 +319,13 @@ python -m unittest discover -s tests -v
 python -m unittest experiments.lstm.test_protocol -v
 ```
 
+每次推送和拉取请求都会通过 [GitHub Actions](.github/workflows/verify.yml) 自动运行结果核验、上述单元测试和显著性结果核对。
+
 ```text
 sse-forecast-benchmark/
 ├── README.md                  # 本图文实验报告与运行指南
 ├── README.en.md               # 英文版 README
+├── .github/workflows/         # 持续集成：结果核验、单元测试与显著性核对
 ├── benchmark_support.py       # 行情校验与数据指纹
 ├── forecast_plotting.py       # 四种方法共用的历史/测试布局
 ├── experiments/
@@ -303,9 +334,10 @@ sse-forecast-benchmark/
 │   ├── timesfm/               # TimesFM 2.5，调用共享 LSTM32 对比
 │   └── lstm/                  # 独立 LSTM；同一训练实现支持20/32日
 ├── requirements/              # 按实验拆分的固定依赖
-├── scripts/                   # 行情下载、结果核验、PDF/报告图重建
+├── scripts/                   # 行情下载、结果核验、显著性检验、PDF/报告图重建
 ├── tests/                     # 数据完整性与绘图时间分界测试
 ├── results/reference/         # 已发表实验记录与校验清单
+├── results/analysis/          # 基于归档预测的显著性检验结果
 ├── reports/                   # 原版 PDF、六幅主图与收益率诊断
 ├── third_party/PatchTST/      # 原作者源码子集及许可证
 ├── data/                      # 本地行情缓存，不提交原始数据
