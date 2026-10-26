@@ -12,7 +12,7 @@ Report date: September 20, 2026. Experiment market data run through September 11
 
 **Main conclusion: within the fixed configurations and historical review periods of this study, none of the models in the main comparisons had an overall level RMSE lower than the previous-close baseline.** After improvement, ARIMA's RMSE decreased relative to the original version; the improvements of PatchTST and TimesFM 2.5 take the form of lower errors relative to the corresponding LSTM configurations. These results do not yet support the claim that the models have stable incremental predictive ability or a tradable return advantage, nor can they be extrapolated into an evaluation of all model configurations.
 
-![Figure 1  RMSE shown separately by experimental condition. Comparisons can be made within each panel; the ARIMA test period differs from that of the latter two groups, and the latter two groups also differ in input length and training method, so this does not constitute a unified architecture ranking.](reports/figures/overview.png)
+![Figure 1  RMSE shown separately by experimental condition. Comparisons can be made within each panel; the ARIMA test period differs from that of the latter two groups, and the latter two groups also differ in input length and training method, so this does not constitute a unified architecture ranking.](reports/figures/en/overview.png)
 
 Figure 1  RMSE shown separately by experimental condition. Comparisons can be made within each panel; the ARIMA test period differs from that of the latter two groups, and the latter two groups also differ in input length and training method, so this does not constitute a unified architecture ranking.
 
@@ -67,9 +67,9 @@ First check differencing, then compare a small number of parameters and training
 
 **Improved method:** setting d = 1 again on returns may cause extra differencing. After checking with ADF, KPSS, and autocorrelation, 6 structures × 3 windows were fixed, for 18 candidates in total; the windows are 126 returns, 252 returns, or an expanding window. Selection was made only by level RMSE on the earlier validation period; the result was ARIMA(0,0,0) with a constant and a 252-return window, which is in essence the historical average return.
 
-![Figure 2 ARIMA: actual history and test-period comparison, with the 125-day test region enlarged below.](reports/figures/arima.png)
+![Figure 2 ARIMA: actual history and test-period comparison, with the 125-day test region enlarged below.](reports/figures/en/arima.png)
 
-Figure 2  The left side of the upper chart shows the 253 actual closes needed for the first forecast, corresponding to 252 historical returns; the right side shows the 125-day forecasts and the actual movement. The lower chart enlarges the test region. When the predicted return is close to zero, the restored level still follows changes in the previous close, so a close-fitting level curve does not mean that the next day's rise or fall was captured. See also the [daily log-return diagnostic chart](reports/figures/arima_returns.png).
+Figure 2  The left side of the upper chart shows the 253 actual closes needed for the first forecast, corresponding to 252 historical returns; the right side shows the 125-day forecasts and the actual movement. The lower chart enlarges the test region. When the predicted return is close to zero, the restored level still follows changes in the previous close, so a close-fitting level curve does not mean that the next day's rise or fall was captured. See also the [daily log-return diagnostic chart](reports/figures/en/arima_returns.png).
 
 | Method | RMSE | MAE |
 | --- | --- | --- |
@@ -89,7 +89,7 @@ Daily retraining and one-step forecasting based on a rolling history window
 
 **Model structure:** LSTM 32 units → LSTM 16 units (ReLU) → Dense 1. Each day uses only past data; after internal validation selects the number of training epochs, the model, optimizer, and full-history standardization are re-initialized, and then all known training samples are fitted.
 
-![Figure 3 LSTM: actual training history on the left, forecasts compared with actuals on the right, with the test region enlarged below.](reports/figures/lstm.png)
+![Figure 3 LSTM: actual training history on the left, forecasts compared with actuals on the right, with the test region enlarged below.](reports/figures/en/lstm.png)
 
 Figure 3  The left side of the upper chart shows the two years of actual history for the first training, and the right side shows the 64 next-day forecasts of the 32-day-input version; the lower chart enlarges the test region. Green is the LSTM, red is the actual close, and gray is the previous-day baseline. The training implementation is located separately in `experiments/lstm/`; 20-day and 32-day are merely different input parameters of the same implementation.
 
@@ -109,7 +109,7 @@ A small Transformer trained on local history
 
 **Experimental setup:** 2 Transformer layers, 4 attention heads, d_model = 32, 17,667 parameters in total; the official RevIN and LayerNorm are used. Each day it is trained on the preceding two years of Close and compared in pairs with the LSTM using the same 20-day input. Both use the same rule for selecting the number of epochs by validation, but details such as normalization and framework still differ.
 
-![Figure 4  The left side of the upper chart is the two-year training history for the first forecast, and the right side is the 64-day test region; the lower chart enlarges the test region. The solid green line is PatchTST, the light-green dotted line is the LSTM with the same 20-day input, the red line is the actual close, and the gray line is the baseline.](reports/figures/patchtst.png)
+![Figure 4  The left side of the upper chart is the two-year training history for the first forecast, and the right side is the 64-day test region; the lower chart enlarges the test region. The solid green line is PatchTST, the light-green dotted line is the LSTM with the same 20-day input, the red line is the actual close, and the gray line is the baseline.](reports/figures/en/patchtst.png)
 
 Figure 4  The left side of the upper chart is the two-year training history for the first forecast, and the right side is the 64-day test region; the lower chart enlarges the test region. The solid green line is PatchTST, the light-green dotted line is the LSTM with the same 20-day input, the red line is the actual close, and the gray line is the baseline.
 
@@ -129,7 +129,7 @@ Frozen pretrained weights used directly for next-day forecasting
 
 **Experimental setup:** the official PyTorch version is used, with the weights made public in 2025 pinned; each time, 32 actual closes are input to forecast the next trading day. The official point forecast takes the median channel. The LSTM is also retrained with a 32-day input; the dates, actual values, and baseline are exactly the same as in the 20-day group. TimesFM was not trained or fine-tuned on the two-year history on the left.
 
-![Figure 5  The blue line on the left represents only the LSTM's first training history. The green TimesFM line is formed by connecting 64 one-step forecasts; each reads only the 32 actual closes before the target day. The lower chart compares it with the 32-day LSTM and the baseline.](reports/figures/timesfm.png)
+![Figure 5  The blue line on the left represents only the LSTM's first training history. The green TimesFM line is formed by connecting 64 one-step forecasts; each reads only the 32 actual closes before the target day. The lower chart compares it with the 32-day LSTM and the baseline.](reports/figures/en/timesfm.png)
 
 Figure 5  The blue line on the left represents only the LSTM's first training history. The green TimesFM line is formed by connecting 64 one-step forecasts; each reads only the 32 actual closes before the target day. The lower chart compares it with the 32-day LSTM and the baseline.
 
@@ -147,7 +147,7 @@ First confirm whether a forecasting gain exists, then decide whether to add comp
 
 **What can be confirmed:** within the historical periods examined in this study and under the fixed configurations, the corrected ARIMA specification, the small PatchTST, and TimesFM pretrained inference can each improve some of the errors relative to their corresponding comparison models; however, the overall RMSE in each of the main comparisons is still higher than the previous-close baseline.
 
-![Figure 6  Monthly RMSE of the two 64-day experiments. June and September cover only part of the month. PatchTST did not outperform the baseline in any of the four intervals; TimesFM was slightly lower than the baseline only in June, and higher than the baseline in the remaining intervals.](reports/figures/monthly.png)
+![Figure 6  Monthly RMSE of the two 64-day experiments. June and September cover only part of the month. PatchTST did not outperform the baseline in any of the four intervals; TimesFM was slightly lower than the baseline only in June, and higher than the baseline in the remaining intervals.](reports/figures/en/monthly.png)
 
 Figure 6  Monthly RMSE of the two 64-day experiments. June and September cover only part of the month. PatchTST did not outperform the baseline in any of the four intervals; TimesFM was slightly lower than the baseline only in June, and higher than the baseline in the remaining intervals.
 
@@ -238,12 +238,13 @@ After installing the base dependencies and preparing historical market data cons
 
 ```bash
 python scripts/render_report_figures.py
+python scripts/render_report_figures.py --language en --output reports/figures/en
 python scripts/render_report_figures.py --layout original --output runs/pdf-original-figures
 ```
 
-The first command generates the six main figures of the current README and the ARIMA return diagnostic chart, written to `reports/figures/` by default. The second rebuilds the six figures of the original PDF and their original layout. Each generation checks the 34 RMSE values and whether the actual history is consistent with the archived closes, and saves a manifest of the figure sources and date ranges.
+The first command generates the six main figures of the Chinese README and the ARIMA return diagnostic chart, written to `reports/figures/` by default; the second generates the English versions used by the English README, written to `reports/figures/en/`. The third rebuilds the six figures of the original PDF and their original layout. Each generation checks the 34 RMSE values and whether the actual history is consistent with the archived closes, and saves a manifest of the figure sources and date ranges.
 
-Different fonts may change the image bytes. The first command uses English labels by default, consistent with the figures in the README; the second uses Chinese labels by default, consistent with the original PDF. Chinese figures require fonts such as Microsoft YaHei or Noto Sans CJK SC; both commands accept `--language zh` or `--language en` to specify the language. The figure layout is handled by the [shared plotting module](forecast_plotting.py), which the actual run outputs of the four methods also use; the left side of the TimesFM figure is explicitly a historical reference and does not represent its pretraining data.
+Different fonts may change the image bytes. Chinese figures require fonts such as Microsoft YaHei or Noto Sans CJK SC; when no Chinese font is available, `--language en` can be added. The figure layout is handled by the [shared plotting module](forecast_plotting.py), which the actual run outputs of the four methods also use; the left side of the TimesFM figure is explicitly a historical reference and does not represent its pretraining data.
 
 ### Recompute the significance tests
 
@@ -338,7 +339,7 @@ sse-forecast-benchmark/
 ├── tests/                     # Data-integrity and plotting time-boundary tests
 ├── results/reference/         # Published experiment records and checksum manifest
 ├── results/analysis/          # Significance-test results based on the archived forecasts
-├── reports/                   # Original PDF, six main figures, and return diagnostics
+├── reports/                   # Original PDF, six main figures, and return diagnostics (English versions in figures/en/)
 ├── third_party/PatchTST/      # Subset of the original authors' source code and license
 ├── data/                      # Local market-data cache; raw data are not committed
 └── runs/                      # Output of new local runs; models are not committed
